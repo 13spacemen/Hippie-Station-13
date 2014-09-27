@@ -1812,6 +1812,17 @@
 						E = new /datum/round_event/disease_outbreak{}()
 						var/datum/round_event/disease_outbreak/DO = E
 						DO.virus_type = virus
+			if("meteor")
+				feedback_inc("admin_secrets_fun_used",1)
+				feedback_add_details("admin_secrets_fun_used","MET")
+				switch(alert("do you want to set the storm's class?",,"Random","Choose"))
+					if("Random")
+						E = new /datum/round_event/meteor_wave()
+					if("Choose")
+						var/meteor = input("choose a number from 1 to INFINITY", "CODE FUCKING RED") as num
+						E = new /datum/round_event/meteor_wave{}()
+						var/datum/round_event/meteor_wave/DO = E
+						DO.wave_class = meteor
 			if("retardify")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","RET")

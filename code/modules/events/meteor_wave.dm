@@ -66,16 +66,3 @@
 /datum/round_event/meteor_wave/tick()
 	if(IsMultiple(activeFor, 3))
 		spawn_meteors(spawn_amount, meteorsA) //meteor list types defined in gamemode/meteor/meteors.dm
-
-/datum/round_event/meteor_wave/end()
-	priority_announce("The station has cleared the meteor shower.", "Meteor Alert")
-	/*for(var/area/A in world)
-		if (A.z == 1)
-			if(wave_class >= 61) //if we need to preserve another kind of alert i guess
-				A.alertreset()
-			else if(wave_class >= 41 && wave_class <= 60)
-				A.dangreset()
-			else if(wave_class >= 21 && wave_class <= 40)
-				A.warnreset()
-			else if(wave_class >= 1 && wave_class <= 20)
-				A.cautionreset()*/
