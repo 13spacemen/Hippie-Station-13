@@ -83,15 +83,6 @@
 	icon_state = "roman_c"
 	item_state = "roman_c"
 
-/obj/item/clothing/head/helmet/fathermask
-	name = "father's mask"
-	desc = "An ancient mask that seem to portray a fatherly face, what this mask is used for is unknown."
-	icon_state = "fathermask"
-	item_state = "fathermask"
-	flags = BLOCKHAIR
-	armor = list(melee = 30, bullet = 5, laser = 25,energy = 15, bomb = 15, bio = 15, rad = 20)
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
-
 /obj/item/clothing/head/helmet/gladiator
 	name = "gladiator helmet"
 	desc = "Ave, Imperator, morituri te salutant."
