@@ -14,5 +14,4 @@
 *.html
 data/ban_unban_log.txt
 data/consistent.ini
-icons/obj/doors/1x3blast_vert.dmi
-icons/obj/doors/1x3blast_hor.dmi
+*.db
