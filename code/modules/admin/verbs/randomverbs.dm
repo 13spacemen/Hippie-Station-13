@@ -427,8 +427,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		src << "there's nothing in the body to send!"
 		return
 
-	var/confirm = alert(src, "Do you want to announce the contents of the report to the crew?", "is this a classified message", "Yes", "No")
-	if(confirm != "Yes")
+	var/confirm = alert(src, "is this a classified message", "can you not read or something", "Yes", "No")
+	if(confirm == "No")
 		priority_announce(inputmain, inputtitle, 'sound/AI/commandreport.ogg');
 		for (var/obj/machinery/computer/communications/C in machines)
 			if(! (C.stat & (BROKEN|NOPOWER) ) )
@@ -437,7 +437,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				P.info = inputmain
 				C.messagetitle.Add(inputtitle)
 				C.messagetext.Add(P.info)
-	else
+	else if(confirm == "Yes")
 		priority_announce("A report has been downloaded and printed out at all communications consoles.", "Incoming Classified Message", 'sound/AI/commandreport.ogg');
 		for (var/obj/machinery/computer/communications/C in machines)
 			if(! (C.stat & (BROKEN|NOPOWER) ) )
@@ -446,8 +446,10 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				P.info = inputmain
 				C.messagetitle.Add("Classified [inputtitle]")
 				C.messagetext.Add(P.info)
+	else
+		src << "you blew it"
 
-	log_admin("[key_name(src)] has created a command report: [inputmain], [inputtitle]")
+	log_admin("[key_name(src)] has created a command report: [inputtitle], [inputmain]")
 	message_admins("[key_name_admin(src)] has created a command report", 1)
 	feedback_add_details("admin_verb","CCR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

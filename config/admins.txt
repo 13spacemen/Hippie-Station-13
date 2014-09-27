@@ -20,3 +20,4 @@ PredGD = Trial Admin
 Katsukai1 = Game Admin
 Brawzki = Game Admin
 Zadeon = TrialMod
+Chronitonity = TrialMod

@@ -29,6 +29,57 @@
 	if(stat == UNCONSCIOUS && !critical)
 		return
 
+
+	if(stat == DEAD) //fuck you
+		src << "<span class='danger'><b>fuck you</b></span>"
+		playsound(src,'sound/misc/no.ogg',80,1)
+		spawn(2)
+			src << "<span class='danger'><b>fuck you</b></span>"
+			playsound(src,'sound/misc/no.ogg',80,1)
+			spawn(2)
+				src << "<span class='danger'><b>fuck you</b></span>"
+				playsound(src,'sound/misc/no.ogg',80,1)
+				spawn(2)
+					src << "<span class='danger'><b>fuck you</b></span>"
+					playsound(src,'sound/misc/no.ogg',80,1)
+					spawn(2)
+						src << "<span class='danger'><b>fuck you</b></span>"
+						playsound(src,'sound/misc/no.ogg',80,1)
+						spawn(2)
+							src << "<span class='danger'><b>fuck you</b></span>"
+							playsound(src,'sound/misc/no.ogg',80,1)
+							spawn(2)
+								src << "<span class='danger'><b>fuck you</b></span>"
+								playsound(src,'sound/misc/no.ogg',80,1)
+								spawn(2)
+									src << "<span class='danger'><b>fuck you</b></span>"
+									playsound(src,'sound/misc/no.ogg',80,1)
+									spawn(2)
+										src << "<span class='danger'><b>fuck you</b></span>"
+										playsound(src,'sound/misc/no.ogg',80,1)
+										spawn(2)
+											src << "<span class='danger'><b>fuck you</b></span>"
+											playsound(src,'sound/misc/no.ogg',80,1)
+											spawn(2)
+												src << "<span class='danger'><b>fuck you</b></span>"
+												playsound(src,'sound/misc/no.ogg',80,1)
+												spawn(2)
+													src << "<span class='danger'><b>fuck you</b></span>"
+													playsound(src,'sound/misc/no.ogg',80,1)
+													spawn(2)
+														src << "<span class='danger'><b>fuck you</b></span>"
+														playsound(src,'sound/misc/no.ogg',80,1)
+														spawn(2)
+															src << "<span class='danger'><b>fuck you</b></span>"
+															playsound(src,'sound/misc/no.ogg',80,1)
+															spawn(2)
+																src << "<span class='danger'><b>fuck you</b></span>"
+																playsound(src,'sound/misc/no.ogg',80,1)
+																spawn(2)
+																	src << "<span class='danger'><b>fuck you</b></span>"
+																	playsound(src,'sound/misc/no.ogg',80,1)
+		return
+
 	// If whispering your last words, limit the whisper based on how close you are to death.
 	if(critical)
 		var/health_diff = round(-config.health_threshold_dead + health)
