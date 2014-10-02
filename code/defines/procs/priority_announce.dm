@@ -28,6 +28,21 @@
 			M << announcement
 			M << sound(sound)
 
+
+/proc/scommand_alert(var/text, var/title = "")//messages from other organizations
+	var/scommand
+	scommand += "<h1 class='alert'>[scommand_name()] Intercept</h1>"
+
+	if (title && length(title) > 0)
+		scommand += "<br><h2 class='alert'>[html_encode(title)]</h2>"
+
+	scommand += "<br><span class='alert'>[html_encode(text)]</span><br>"
+	scommand += "<br>"
+	for(var/mob/M in player_list)
+		if(!istype(M,/mob/new_player))
+			M << scommand
+
+
 /proc/print_command_report(var/text = "", var/title = "Central Command Update")
 	for (var/obj/machinery/computer/communications/C in machines)
 		if(!(C.stat & (BROKEN|NOPOWER)) && C.z == 1)

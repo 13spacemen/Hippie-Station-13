@@ -453,6 +453,47 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	message_admins("[key_name_admin(src)] has created a command report", 1)
 	feedback_add_details("admin_verb","CCR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+
+
+/client/proc/cmd_admin_create_synd_report()
+
+	set category = "Special Verbs"
+	set name = "Create Antag Intercept"
+	if(!holder)
+		src << "Only administrators may use this command."
+		return
+	var/input = input(usr, "Please enter anything you want. Anything. Serious.", "What?", "") as message|null
+	if(!input)
+		return
+	var/input1 = input("Message:", text("Organization making intercept")) as text
+	if(!input1)
+		return
+	var/confirm = alert(src, "Do you want to announce the contents of the report to the crew?", "Announce", "Yes", "No")
+	if(confirm == "Yes")
+		scommand_name = input1
+		scommand_alert(input);
+		for (var/obj/machinery/computer/communications/C in machines)
+			if(! (C.stat & (BROKEN|NOPOWER) ) )
+				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( C.loc )
+				P.name = "paper- '[scommand_name()] Intercept.'"
+				P.info = input
+				C.messagetitle.Add("[scommand_name()] Intercept")
+				C.messagetext.Add(P.info)
+	else
+		priority_announce("An enemy intercept has been downloaded and printed out at all communications consoles.", "Incoming Intercepted Message");
+		for (var/obj/machinery/computer/communications/C in machines)
+			if(! (C.stat & (BROKEN|NOPOWER) ) )
+				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( C.loc )
+				P.name = "paper- 'Classified [scommand_name()] Intercept Report.'"
+				P.info = input
+				C.messagetitle.Add("Classified [scommand_name()] Intercept Report")
+				C.messagetext.Add(P.info)
+
+	world << sound('sound/AI/intercept2.ogg')
+	log_admin("[key_name(src)] has created an enemy command report: [input]")
+	message_admins("[key_name_admin(src)] has created an enemy command report", 1)
+
+
 /client/proc/cmd_admin_delete(atom/O as obj|mob|turf in world)
 	set category = "Admin"
 	set name = "Delete"

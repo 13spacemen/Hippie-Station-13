@@ -290,13 +290,19 @@
 
 		var/duration
 
+
 		switch(alert("Temporary Ban?",,"Yes","No"))
 			if("Yes")
 				temp = 1
 				var/mins = 0
 				if(minutes > CMinutes)
 					mins = minutes - CMinutes
-				mins = input(usr,"How long (in minutes)? (Default: 1440)","Ban time",mins ? mins : 1440) as num|null
+				switch(alert("Time Unit?",,"Days","Minutes"))
+					if("Days")
+						mins = 1440*(input(usr,"How long (in days)? (Default: 1)","Ban time",mins ? mins : 1) as num|null)
+					if("Minutes")
+						mins = input(usr,"How long (in minutes)? (Default: 1440)","Ban time",mins ? mins : 1440) as num|null
+
 				if(!mins)	return
 				mins = min(525599,mins)
 				minutes = CMinutes + mins
