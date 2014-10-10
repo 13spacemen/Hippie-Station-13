@@ -48,6 +48,7 @@
 	item_state = "butt"
 	throwforce = 5
 	force = 5
+	hitsound = 'sound/misc/fart.ogg'
 	var/subjectname = ""
 	var/subjectjob = null
 	var/hname = ""
