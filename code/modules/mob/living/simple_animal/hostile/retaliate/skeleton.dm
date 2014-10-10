@@ -10,7 +10,7 @@
 	response_help = "hugs"
 	response_disarm = "gently pushes aside"
 	response_harm = "attacks"
-	speak = list("HONK", "Honk!", "HONK HONK")
+	speak = list("Welcome aboard maties!", "Use your skills to take what you will!", "Spin the wheel for the treasure to take, careful my friend or he'll rattle and shake.")
 	emote_see = list("rattles")
 	speak_chance = 1
 	a_intent = "harm"
