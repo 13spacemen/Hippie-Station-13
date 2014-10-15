@@ -114,7 +114,7 @@ GUEST_BAN
 SERVER 
 
 ## forum address
-FORUMURL http://hippiestation13.proboards.com/
+FORUMURL http://hippie-station-13.com/forums/index.php
 
 ## Wiki address
 WIKIURL http://www.tgstation13.org/wiki
