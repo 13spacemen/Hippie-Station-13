@@ -120,13 +120,13 @@ FORUMURL http://hippie-station-13.com/forums/index.php
 WIKIURL http://www.tgstation13.org/wiki
 
 ##Rules address
-RULESURL http://hippiestation13.proboards.com/thread/13/server-rules
+RULESURL http://hippie-station-13.com/misc/darules.shtml
 
 ##Github address
 GITHUBURL https://github.com/Lawligagger/-tg-station
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
-BANAPPEALS http://hippiestation13.proboards.com/board/2/ban-appeals
+BANAPPEALS http://hippie-station-13.com/forums/viewforum.php?f=8
 
 ## In-game features
 ##Toggle for having jobs load up from the .txt
