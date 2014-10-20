@@ -8,6 +8,7 @@
 # NOTE: syntax was changed to allow hyphenation of ranknames, since spaces are stripped.      #
 ###############################################################################################
 Lawligagger = Host
+Redswandir = Game Master
 Foos = Game Master
 Malanth = Game Master
 GlebGuy = Moderator

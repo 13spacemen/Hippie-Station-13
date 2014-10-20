@@ -117,3 +117,21 @@ datum/shuttle_manager/proc/move_shuttle(var/override_delay)
 		admins << "<b>FERRY: <font color='blue'>[key_name(usr)] (<A HREF='?_src_=holder;adminmoreinfo=\ref[usr]'>?</A>) (<A HREF='?_src_=holder;secretsadmin=moveferry'>Move</a>)</b> is requesting to move the transport ferry to [s.location == /area/shuttle/transport1/centcom ? "the station" : "Centcom"].</font>"
 		spawn(600) //One minute cooldown
 			cooldown = 0
+
+
+/obj/machinery/computer/shuttle/wizard
+	name = "academy cruiser controls"
+	circuit = /obj/item/weapon/circuitboard/wizard
+	id = "wizard"
+
+
+/obj/machinery/computer/shuttle/wizard/Topic(href, href_list)
+	if(href_list["move"])
+		if(id in shuttles)
+			var/datum/shuttle_manager/s = shuttles[id]
+			if (s.move_shuttle())
+				usr << "<span class='notice'>Accepting command: preparing to execute.</span>"
+			else
+				usr << "<span class='notice'>Cruiser is already moving.</span>"
+		else
+			usr << "<span class='warning'>Invalid command.</span>"

@@ -70,13 +70,13 @@
 	plmaster = new /obj/effect/overlay()
 	plmaster.icon = 'icons/effects/tile_effects.dmi'
 	plmaster.icon_state = "plasma"
-	plmaster.layer = FLY_LAYER
+	plmaster.layer = 5
 	plmaster.mouse_opacity = 0
 
 	slmaster = new /obj/effect/overlay()
 	slmaster.icon = 'icons/effects/tile_effects.dmi'
 	slmaster.icon_state = "sleeping_agent"
-	slmaster.layer = FLY_LAYER
+	slmaster.layer = 5
 	slmaster.mouse_opacity = 0
 
 	master_controller = new /datum/controller/game_controller()

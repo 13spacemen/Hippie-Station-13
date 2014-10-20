@@ -2,12 +2,14 @@
 	name = "overlay"
 	unacidable = 1
 	var/i_attached//Added for possible image attachments to objects. For hallucinations and the like.
+	mouse_opacity = 0
 
 /obj/effect/overlay/beam//Not actually a projectile, just an effect.
 	name="beam"
 	icon='icons/effects/beam.dmi'
 	icon_state="b_beam"
 	var/atom/BeamSource
+	mouse_opacity = 1
 
 /obj/effect/overlay/beam/New()
 	..()
@@ -20,6 +22,7 @@
 	density = 1
 	layer = 5
 	anchored = 1
+	mouse_opacity = 1
 
 /obj/effect/overlay/palmtree_l
 	name = "Palm tree"
@@ -28,8 +31,10 @@
 	density = 1
 	layer = 5
 	anchored = 1
+	mouse_opacity = 1
 
 /obj/effect/overlay/coconut
 	name = "Coconuts"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "coconuts"
+	mouse_opacity = 1

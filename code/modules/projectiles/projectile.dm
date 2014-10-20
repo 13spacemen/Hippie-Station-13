@@ -157,5 +157,22 @@
 		Range()
 	return
 
+/obj/item/projectile/proc/dumbfire(var/dir) // for spacepods, yay snowflake
+	if(!dir)
+		qdel(src)
+	if(kill_count < 1)
+		qdel(src)
+	kill_count--
+	spawn while(loc)
+		var/turf/T = get_step(src, dir)
+		step_towards(src, T)
+		if(!bumped && !isturf(original))
+			if(loc == get_turf(original))
+				if(!(original in permutated))
+					Bump(original)
+					sleep(1)
+		sleep(1)
+	return
+
 /obj/item/projectile/proc/Range()
 	return

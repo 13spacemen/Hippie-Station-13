@@ -14,7 +14,7 @@
 /client/proc/cmd_smite(var/mob/living/M in world)
 	set category = "Badmin"
 	set name = "Smite"
-	if(!ticker)
+	if(!holder)
 		usr << "no"
 		return
 

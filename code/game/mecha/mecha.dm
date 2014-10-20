@@ -20,6 +20,12 @@
 	infra_luminosity = 15 //byond implementation is bugged.
 	var/can_move = 1
 	var/mob/living/carbon/occupant = null
+	var/mob/living/carbon/pass1 = null
+	var/mob/living/carbon/pass2 = null
+	var/mob/living/carbon/pass3 = null
+	var/mob/living/carbon/pass4 = null
+	var/mob/living/carbon/pass5 = null
+	var/mob/living/carbon/pass6 = null //7 people in a mech MAX
 	var/step_in = 10 //make a step in step_in/10 sec.
 	var/dir_in = 2//What direction will the mech face when entered/powered on? Defaults to South.
 	var/step_energy_drain = 10
@@ -232,8 +238,10 @@
 			usr << "It's falling apart."
 	if(equipment && equipment.len)
 		usr << "It's equipped with:"
-		for(var/obj/item/mecha_parts/mecha_equipment/ME in equipment)
+		for((var/obj/item/mecha_parts/mecha_equipment/ME) in equipment)
 			usr << "\icon[ME] [ME]"
+		for((var/obj/item/mecha_parts/spod_equipment/SE) in equipment)
+			usr << "\icon[SE] [SE]"
 	return
 
 
@@ -1328,8 +1336,10 @@
 		output += {"<div class='wr'>
 						<div class='header'>Equipment</div>
 						<div class='links'>"}
-		for(var/obj/item/mecha_parts/mecha_equipment/W in equipment)
+		for((var/obj/item/mecha_parts/mecha_equipment/W) in equipment)
 			output += "[W.name] <a href='?src=\ref[W];detach=1'>Detach</a><br>"
+		for((var/obj/item/mecha_parts/spod_equipment/S) in equipment)
+			output += "[S.name] <a href='?src=\ref[S];detach=1'>Detach</a><br>"
 		output += "<b>Available equipment slots:</b> [max_equip-equipment.len]"
 		output += "</div></div>"
 	return output
@@ -1338,8 +1348,10 @@
 	if(!equipment.len)
 		return
 	var/output = "<b>Equipment:</b><div style=\"margin-left: 15px;\">"
-	for(var/obj/item/mecha_parts/mecha_equipment/MT in equipment)
+	for((var/obj/item/mecha_parts/mecha_equipment/MT) in equipment)
 		output += "<div id='\ref[MT]'>[MT.get_equip_info()]</div>"
+	for((var/obj/item/mecha_parts/spod_equipment/ST) in equipment)
+		output += "<div id='\ref[ST]'>[ST.get_equip_info()]</div>"
 	output += "</div>"
 	return output
 
