@@ -227,6 +227,7 @@ var/global/list/datum/stack_recipe/clown_recipes = list ( \
 	throw_speed = 1
 	throw_range = 3
 	origin_tech = "materials=4"
+	sheettype = "adamantine"
 
 /*
  * Mythril
@@ -241,3 +242,15 @@ var/global/list/datum/stack_recipe/clown_recipes = list ( \
 	throw_speed = 1
 	throw_range = 3
 	origin_tech = "materials=4"
+
+/obj/item/stack/sheet/mineral/mime
+	name = "mimesteinium"
+	icon_state = "sheet-mime"
+	singular_name = "mimesteinium sheet"
+	force = 5.0
+	throwforce = 5
+	w_class = 3.0
+	throw_speed = 1
+	throw_range = 3
+	origin_tech = "materials=4"
+	sheettype = "mime"

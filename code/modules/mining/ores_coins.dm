@@ -89,8 +89,22 @@
 	name = "Bananium ore"
 	icon_state = "Clown ore"
 	origin_tech = "materials=4"
-	points = 27
+	points = 50
 	refined_type = /obj/item/stack/sheet/mineral/clown
+
+/obj/item/weapon/ore/mime
+	name = "Mimesteinium ore"
+	icon_state = "Mime ore"
+	origin_tech = "materials=4"
+	points = 50
+	refined_type = /obj/item/stack/sheet/mineral/mime
+
+/obj/item/weapon/ore/adamantine
+	name = "Adamantine ore"
+	icon_state = "Adamantine ore"
+	origin_tech = "materials=9"
+	points = 100
+	refined_type = /obj/item/stack/sheet/mineral/adamantine
 
 /obj/item/weapon/ore/slag
 	name = "Slag"
@@ -218,6 +232,10 @@
 /obj/item/weapon/coin/clown
 	cmineral = "bananium"
 	value = 600 //makes the clown cri
+
+/obj/item/weapon/coin/mime
+	cmineral = "mimesteinium"
+	value = 300 //filthy peasant mime
 
 /obj/item/weapon/coin/adamantine
 	cmineral = "adamantine"

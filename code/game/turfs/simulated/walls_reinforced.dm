@@ -55,7 +55,7 @@
 			if (istype(W, /obj/item/weapon/wirecutters))
 				playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 				src.d_state = 1
-				src.icon_state = "r_wall-1"
+				src.icon_state = "[icon_state]-1"
 				new /obj/item/stack/rods( src )
 				user << "<span class='notice'>You cut the outer grille.</span>"
 				return
@@ -70,7 +70,7 @@
 
 				if( d_state == 1 && user.loc == T && user.get_active_hand() == W )
 					src.d_state = 2
-					src.icon_state = "r_wall-2"
+					src.icon_state = "[icon_state]-2"
 					user << "<span class='notice'>You remove the support lines.</span>"
 				return
 
@@ -79,7 +79,7 @@
 				var/obj/item/stack/rods/O = W
 				if (O.use(1))
 					src.d_state = 0
-					src.icon_state = "r_wall"
+					src.icon_state = "[icon_state]"
 					relativewall_neighbours()	//call smoothwall stuff
 					user << "<span class='notice'>You replace the outer grille.</span>"
 				else
@@ -100,7 +100,7 @@
 
 					if( d_state == 2 && user.loc == T && user.get_active_hand() == WT )
 						src.d_state = 3
-						src.icon_state = "r_wall-3"
+						src.icon_state = "[icon_state]-3"
 						user << "<span class='notice'>You press firmly on the cover, dislodging it.</span>"
 				return
 
@@ -114,7 +114,7 @@
 
 				if( d_state == 2 && user.loc == T && user.get_active_hand() == W )
 					src.d_state = 3
-					src.icon_state = "r_wall-3"
+					src.icon_state = "[icon_state]-3"
 					user << "<span class='notice'>You press firmly on the cover, dislodging it.</span>"
 				return
 
@@ -129,7 +129,7 @@
 
 				if( d_state == 3 && user.loc == T && user.get_active_hand() == W )
 					src.d_state = 4
-					src.icon_state = "r_wall-4"
+					src.icon_state = "[icon_state]-4"
 					user << "<span class='notice'>You pry off the cover.</span>"
 				return
 
@@ -144,7 +144,7 @@
 
 				if( d_state == 4 && user.loc == T && user.get_active_hand() == W )
 					src.d_state = 5
-					src.icon_state = "r_wall-5"
+					src.icon_state = "[icon_state]-5"
 					user << "<span class='notice'>You remove the bolts anchoring the support rods.</span>"
 				return
 
@@ -161,7 +161,7 @@
 
 					if( d_state == 5 && user.loc == T && user.get_active_hand() == WT )
 						src.d_state = 6
-						src.icon_state = "r_wall-6"
+						src.icon_state = "[icon_state]-6"
 						new /obj/item/stack/rods( src )
 						user << "<span class='notice'>The support rods drop out as you cut them loose from the frame.</span>"
 				return
@@ -176,7 +176,7 @@
 
 				if( d_state == 5 && user.loc == T && user.get_active_hand() == W )
 					src.d_state = 6
-					src.icon_state = "r_wall-6"
+					src.icon_state = "[icon_state]-6"
 					new /obj/item/stack/rods( src )
 					user << "<span class='notice'>The support rods drop out as you cut them loose from the frame.</span>"
 				return
@@ -224,7 +224,7 @@
 				return
 			MS.use(1)
 			src.d_state = 0
-			src.icon_state = "r_wall"
+			src.icon_state = "[icon_state]"
 			relativewall_neighbours()	//call smoothwall stuff
 			user << "<span class='notice'>You repair the last of the damage.</span>"
 
@@ -267,3 +267,22 @@
 	else if(!d_state)
 		return attack_hand(user)
 	return
+
+
+
+
+/turf/simulated/wall/r_wall/old
+	name = "reinforced old wall"
+	desc = "A huge chunk of reinforced metal used to seperate rooms. This appears to be an older construction, however..."
+	icon_state = "oldwall"
+
+	walltype = "oldwall"
+
+	hardness = 25
+
+/turf/simulated/wall/r_wall/rust
+	name = "rusted reinforced wall"
+	desc = "A huge chunk of reinforced metal. It's rusted from space weather."
+	icon_state = "rrust"
+	walltype = "rrust"
+	hardness = 15

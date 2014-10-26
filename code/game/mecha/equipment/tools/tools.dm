@@ -1198,3 +1198,80 @@
 	sleep(equip_cooldown)
 	wait = 0
 	return 1
+
+
+
+
+
+
+/obj/item/mecha_parts/mecha_equipment/tool/beacon_teleporter
+	name = "wormhole beacon teleporter"
+	desc = "This thing creates a wormhole, which will take you to any navigation beacon in space, as long as it is in range."
+	icon_state = "tesla"
+	equip_cooldown = 50
+	energy_drain = 300
+	var/active_portals = 0
+
+/obj/item/mecha_parts/mecha_equipment/tool/beacon_teleporter/proc/set_target(mob/user)
+	var/turf/current_location = get_turf(user)//What turf is the user on?
+	if(!current_location||current_location.z==2)
+		user << "<span class='notice'>\The [src] is malfunctioning.</span>"
+		return
+	var/list/L = list(  )
+	for(var/obj/machinery/bluespace_beacon/com in world)
+		if(com.loc)
+			L["[com.loc.name]"] = com.loc
+	var/list/turfs = list(	)
+	for(var/turf/T in orange(10))
+		if(T.x>world.maxx-8 || T.x<8)	continue	//putting them at the edge is dumb
+		if(T.y>world.maxy-8 || T.y<8)	continue
+		turfs += T
+	if(turfs.len)
+		L["None (Dangerous)"] = pick(turfs)
+	var/t1 = input(user, "Select a beacon to lock in on.", "Wormhole Generator") in L
+	if(active_portals >= 3)
+		user.show_message("<span class='notice'>\The [src] is recharging!</span>")
+		return
+	var/T = L[t1]
+	for(var/mob/O in hearers(user, null))
+		O.show_message("<span class='notice'>Locked In.</span>", 2)
+	var/obj/effect/portal/P = new /obj/effect/portal(get_turf(src), T, src)
+	try_move_adjacent(P)
+	active_portals++
+	return
+
+/obj/item/mecha_parts/mecha_equipment/tool/beacon_teleporter/get_equip_info()
+	if(!chassis) return
+	return "<span style=\"color:[equip_ready?"#0f0":"#f00"];\">*</span>&nbsp;[src.name] \[<a href=\"?src=\ref[src];createwormhole=1\">Create Wormhole</a>\]"
+
+/obj/item/mecha_parts/mecha_equipment/tool/beacon_teleporter/Topic(href,href_list)
+	..()
+	if(href_list["createwormhole"])
+		set_target()
+
+
+/*
+/obj/item/mecha_parts/mecha_equipment/tool/beacon_teleporter/proc/set_target(mob/user)
+	var/list/L = list()
+	var/list/areaindex = list()
+	btarget = null
+
+	for(var/obj/machinery/bluespace_beacon/R in world)
+		var/turf/T = get_turf(R)
+		if (!T)
+			continue
+		if(T.z == 2 || T.z > 10) //fuck you you don't get away mission shit (later on I may do something similar to telesci)
+			continue
+		var/tmpname = T.loc.name
+		if(areaindex[tmpname])
+			tmpname = "[tmpname] ([++areaindex[tmpname]])"
+		else
+			areaindex[tmpname] = 1
+		L[tmpname] = R
+
+		var/desc = input("Select a location to jump to.", "Wormhole Generator") in L
+		btarget = L[desc]
+
+		mechteleport()
+
+	return */

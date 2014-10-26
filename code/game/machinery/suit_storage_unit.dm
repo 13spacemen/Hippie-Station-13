@@ -69,6 +69,7 @@
 	SUIT_TYPE = /obj/item/clothing/suit/space/hardsuit/mining
 	HELMET_TYPE = /obj/item/clothing/head/helmet/space/hardsuit/mining
 	MASK_TYPE = /obj/item/clothing/mask/breath
+	STORAGE_TYPE = /obj/item/weapon/tank/jetpack/carbondioxide/mining
 
 /obj/machinery/suit_storage_unit/cmo
 	SUIT_TYPE = /obj/item/clothing/suit/space/hardsuit/medical

@@ -874,6 +874,10 @@ proc/process_ghost_teleport_locs()
 	name = "Gravity Generator Room"
 	icon_state = "blue"
 
+/area/engine/sing_generator
+	name = "Singularity Containment"
+	icon_state = "blue"
+
 //Solars
 
 /area/solar
@@ -1517,6 +1521,53 @@ proc/process_ghost_teleport_locs()
 	name = "Unknown"
 	icon_state = "storage"
 
+
+/////////////////////
+////SPACE BEACONS////
+/////////////////////
+
+/area/spaceareas/space_beacons/station/west
+	name = "West to Mining"
+	icon_state = "red"
+	has_gravity = 0
+
+/area/spaceareas/space_beacons/station/east
+	name = "East of Arrivals"
+	icon_state = "red"
+	has_gravity = 0
+
+/area/spaceareas/space_beacons/station/south
+	name = "South of the AI Sat"
+	icon_state = "red"
+	has_gravity = 0
+
+/area/spaceareas/space_beacons/station/north
+	name = "North of Security"
+	icon_state = "red"
+	has_gravity = 0
+
+//////////////////////
+////MINING BEACONS////
+//////////////////////
+
+/area/spaceareas/space_beacons/mining
+	name = "Asteroid Field"
+	icon_state = "red"
+	has_gravity = 0
+
+
+////////////////////
+////MISC BEACONS////
+////////////////////
+
+/area/spaceareas/space_beacons/derelict
+	name = "Debris Field"
+	icon_state = "red"
+	has_gravity = 0
+
+///////////////////
+////SPACE AREAS////
+///////////////////
 
 /area/spaceareas/teleportsat
 	name = "Teleportation Satellite"

@@ -60,10 +60,18 @@
 	//Attach drill
 	if(prob(25)) //Possible diamond drill... Feeling lucky?
 		var/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill/D = new /obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill
+		var/obj/item/mecha_parts/mecha_equipment/tool/jetpack/J = new /obj/item/mecha_parts/mecha_equipment/tool/jetpack
+		var/obj/item/mecha_parts/mecha_equipment/tool/beacon_teleporter/BT = new /obj/item/mecha_parts/mecha_equipment/tool/beacon_teleporter
+		J.attach(src)
 		D.attach(src)
+		BT.attach(src)
 	else
 		var/obj/item/mecha_parts/mecha_equipment/tool/drill/D = new /obj/item/mecha_parts/mecha_equipment/tool/drill
+		var/obj/item/mecha_parts/mecha_equipment/tool/jetpack/J = new /obj/item/mecha_parts/mecha_equipment/tool/jetpack
+		var/obj/item/mecha_parts/mecha_equipment/tool/beacon_teleporter/BT = new /obj/item/mecha_parts/mecha_equipment/tool/beacon_teleporter
 		D.attach(src)
+		J.attach(src)
+		BT.attach(src)
 
 	//Attach hydrolic clamp
 	var/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp/HC = new /obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp

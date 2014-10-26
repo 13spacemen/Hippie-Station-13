@@ -1,5 +1,7 @@
 /obj/item/weapon/melee/energy/
 	var/active = 0
+	var/active_force = 0 //force when active
+	var/deactive_force = 0 //force when off
 
 /obj/item/weapon/melee/energy/suicide_act(mob/user)
 	user.visible_message(pick("<span class='suicide'>[user] is slitting \his stomach open with the [src.name]! It looks like \he's trying to commit seppuku.</span>", \
@@ -13,7 +15,9 @@
 	name = "energy axe"
 	desc = "An energised battle axe."
 	icon_state = "axe0"
-	force = 40.0
+	force = 40
+	deactive_force = 40
+	active_force = 150
 	throwforce = 25.0
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	throw_speed = 3
@@ -31,13 +35,13 @@
 	active = !active
 	if(active)
 		user << "<span class='notice'>[src] is now energised.</span>"
-		force = 150 //these are the drugs, friend
+		force = active_force //these are the drugs, friend
 		hitsound = 'sound/weapons/blade1.ogg'
 		icon_state = "axe1"
 		w_class = 5
 	else
 		user << "<span class='notice'>[src] can now be concealed.</span>"
-		force = 40
+		force = deactive_force
 		hitsound = 'sound/weapons/bladeslice.ogg'
 		icon_state = "axe0"
 		w_class = 3 //it goes back to three you goose
@@ -48,7 +52,9 @@
 	name = "energy sword"
 	desc = "May the force be within you."
 	icon_state = "sword0"
-	force = 3.0
+	force = 3
+	active_force = 30
+	deactive_force = 3
 	throwforce = 5.0
 	hitsound = "swing_hit" //it starts deactivated
 	throw_speed = 3
@@ -72,7 +78,7 @@
 		user.take_organ_damage(5,5)
 	active = !active
 	if (active)
-		force = 30
+		force = active_force
 		throwforce = 20
 		hitsound = 'sound/weapons/blade1.ogg'
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
@@ -84,7 +90,7 @@
 		playsound(user, 'sound/weapons/saberon.ogg', 35, 1) //changed it from 50% volume to 35% because deafness
 		user << "<span class='notice'>[src] is now active.</span>"
 	else
-		force = 3
+		force = deactive_force
 		throwforce = 5.0
 		hitsound = "swing_hit"
 		attack_verb = null
@@ -164,6 +170,8 @@
 	desc = "A concentrated beam of energy in the shape of a blade. Very stylish... and lethal."
 	icon_state = "blade"
 	force = 30	//Normal attacks deal esword damage
+	active_force = 30
+	deactive_force = 30
 	hitsound = 'sound/weapons/blade1.ogg'
 	throwforce = 1//Throwing or dropping the item deletes it.
 	throw_speed = 3
@@ -189,13 +197,6 @@
 	color
 	name = "emergy suord"
 	desc = "May the farce be within you."
-
-/obj/item/weapon/melee/energy/sword/sord/attack_self(mob/living/user)
-	if (active)
-		force = 5
-		hitsound = 'sound/weapons/blade1.ogg'
-		..()
-	else
-		..()
-	add_fingerprint(user)
-	return
+	force = 2
+	deactive_force = 2
+	active_force = 2

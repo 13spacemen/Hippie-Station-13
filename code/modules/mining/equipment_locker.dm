@@ -758,7 +758,7 @@
 		var/client/C = user.client
 		var/list/L = list()
 		var/turf/simulated/mineral/M
-		for(M in range(7, user))
+		for(M in range(11, user))
 			if(M.scan_state)
 				L += M
 		if(!L.len)
@@ -772,15 +772,6 @@
 				spawn(30)
 					if(C)
 						C.images -= I
-
-//Debug item to identify all ore spread quickly
-/obj/item/device/mining_scanner/admin
-
-/obj/item/device/mining_scanner/admin/attack_self(mob/user)
-	for(var/turf/simulated/mineral/M in world)
-		if(M.scan_state)
-			M.icon_state = M.scan_state
-	del(src)
 
 /**********************Xeno Warning Sign**********************/
 /obj/structure/sign/xeno_warning_mining
