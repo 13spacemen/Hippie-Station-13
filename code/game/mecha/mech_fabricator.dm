@@ -21,6 +21,8 @@
 										"metal"=0,
 										"glass"=0,
 										"bananium"=0,
+										"mimesteinium"=0,
+										"adamantine"=0,
 										"diamond"=0,
 										"gold"=0,
 										"plasma"=0,
@@ -104,7 +106,7 @@
 						/obj/item/mecha_parts/chassis/firefighter,
 						///obj/item/mecha_parts/mecha_equipment/repair_droid,
 						/obj/item/mecha_parts/mecha_equipment/generator,
-						///obj/item/mecha_parts/mecha_equipment/jetpack, //TODO MECHA JETPACK SPRITE MISSING
+						/obj/item/mecha_parts/mecha_equipment/tool/jetpack,
 						/obj/item/mecha_parts/mecha_equipment/weapon/energy/taser,
 						/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg,
 						/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack/mousetrap_mortar,

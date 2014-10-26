@@ -197,11 +197,22 @@
 					src.internal_organs -= B
 					new /obj/item/clothing/head/butt(src.loc)
 					new /obj/effect/decal/cleanable/blood(src.loc)
-				for(var/mob/M in range(0))
+				for(var/mob/living/M in range(0))
 					if(M != src)
 						visible_message("\red <b>[src]</b>'s ass hits <b>[M]</b> in the face!", "\red Your ass smacks <b>[M]</b> in the face!")
-						apply_damage(15,"brute","head")
+						M.apply_damage(15,"brute","head")
 				visible_message("\red <b>[src]</b> blows their ass off!", "\red Holy shit, your butt flies off in an arc!")
+
+			for(var/obj/item/weapon/storage/book/bible/CUL8 in range(0))
+				var/obj/effect/lightning/L = new /obj/effect/lightning()
+				L.loc = get_turf(src.loc)
+				L.layer = src.layer+1
+				L.icon_state = "lightning"
+				playsound(CUL8,'sound/effects/thunder.ogg',90,1)
+				spawn(10)
+					src.gib()
+					spawn(10)
+						del(L)
 
 //		if ("poo") //lolno
 
@@ -240,10 +251,10 @@
 														new /obj/item/clothing/head/butt(src.loc)
 														new /obj/effect/decal/cleanable/blood(src.loc)
 													if(prob(76))
-														for(var/mob/M in range(0))
+														for(var/mob/living/M in range(0))
 															if(M != src)
 																visible_message("\red <b>[src]</b>'s ass blasts <b>[M]</b> in the face!", "\red You ass blast <b>[M]</b>!")
-																apply_damage(75,"brute","head")
+																M.apply_damage(75,"brute","head")
 															else
 																continue
 														visible_message("\red <b>[src]</b> blows their ass off!", "\red Holy shit, your butt flies off in an arc!")
@@ -285,6 +296,17 @@
 														visible_message("\red <b>[src]</b> rips their ass apart in a massive explosion!", "\red Holy shit, your butt goes supernova!")
 														explosion(src.loc,0,1,3,adminlog = 0,flame_range = 3)
 														usr.gib()
+
+													for(var/obj/item/weapon/storage/book/bible/CUL8 in range(0))
+														var/obj/effect/lightning/L = new /obj/effect/lightning()
+														L.loc = get_turf(src.loc)
+														L.layer = src.layer+1
+														L.icon_state = "lightning"
+														playsound(CUL8,'sound/effects/thunder.ogg',90,1)
+														spawn(10)
+															src.gib()
+															spawn(10)
+															del(L)
 
 
 		if ("help")

@@ -36,6 +36,7 @@
 	R.updatename("Default")
 	R.status_flags |= CANPUSH
 	R.designation = "Default"
+	R.is_reset = 1 //sec borgs HO
 	R.notify_ai(2)
 	R.updateicon()
 

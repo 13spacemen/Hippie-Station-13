@@ -48,6 +48,7 @@
 	var/datum/effect/effect/system/ion_trail_follow/ion_trail = null
 	var/datum/effect/effect/system/spark_spread/spark_system//So they can initialize sparks whenever/N
 	var/jeton = 0
+	var/is_reset = 0
 
 	var/lawupdate = 1 //Cyborgs will sync their laws with their AI by default
 	var/lockcharge //Boolean of whether the borg is locked down or not
@@ -131,11 +132,15 @@
 /mob/living/silicon/robot/proc/pick_module()
 	if(module)
 		return
-	designation = input("Please, select a module!", "Robot", null, null) in list("Standard", "Engineering", "Medical", "Miner", "Janitor","Service", "Security")
+	if(is_reset == 1)
+		designation = input("Please, select a module!", "Robot", null, null) in list("Standard", "Engineering", "Medical", "Miner", "Janitor","Service", "Security")
+	else
+		designation = input("Please, select a module!", "Robot", null, null) in list("Standard", "Engineering", "Medical", "Miner", "Janitor","Service")
 	var/animation_length=0
 	if(module)
 		return
 	updatename()
+	src.is_reset = 0
 	switch(designation)
 		if("Standard")
 			module = new /obj/item/weapon/robot_module/standard(src)
