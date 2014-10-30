@@ -1,4 +1,4 @@
-###############################################################################################
+################################################################################################
 # Basically, ckey goes first. Rank goes after the "="                                         #
 # Case is not important for ckey.                                                             #
 # Case IS important for the rank.                                                             #
@@ -8,24 +8,28 @@
 # NOTE: syntax was changed to allow hyphenation of ranknames, since spaces are stripped.      #
 ###############################################################################################
 Lawligagger = Host
-Redswandir = Game Master
-Foos = Game Master
-Malanth = Game Master
-GlebGuy = Moderator
+Foos = Head Admin
+Malanth = Head Admin
 Looping = Game Admin
 DrunkenFlyingDemoman = Game Admin
 AngryFrenchKanadian = Game Admin
-Scooterkid74 = Game Admin
+Scooterkid74 = Game Master
 Kalameet = Game Admin
-PredGD = Trial Admin
+PredGD = Game Admin
 Katsukai1 = Game Admin
 Brawzki = Game Admin
-Zadeon = Trial Admin
+Zadeon = Game Admin
 Chronitonity = Game Admin
 Karmahunter = Game Admin
 TheSharpy = Game Admin
-Neemy = TrialMod
-medal-12 = TrialMod
-Mocheeze = Mapper
-Limboo = TrialMod
-TDcoolguy300 = GameAdmin
+Neemy = Game Admin
+medal-12 = Game Admin
+Mocheeze = Game Admin
+Limboo = Game Admin
+TDcoolguy300 = Game Admin
+Crystalwarrior160 = Trial Admin
+GeorgeMelons = Game Master
+themostcleverbot = Game Admin
+ChronicPwnage = Game Admin
+Redswandir = Coder
+HITHISISFRONK = Trial Admin

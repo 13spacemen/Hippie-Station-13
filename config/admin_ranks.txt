@@ -36,6 +36,7 @@ Game Admin		= +@ +STEALTH +SOUNDS +DEBUG
 Game Master		= +EVERYTHING
 TrialMod		= +Admin +Ban
 Spriterguy		= 
+Head Admin		= +EVERYTHING
 
 Host			= +EVERYTHING
 
