@@ -56,8 +56,9 @@
 			m_type = 1
 
 		if ("burp")
-			if (!muzzled)
-				..(act)
+			playsound(src.loc, 'sound/misc/burp.ogg', 50, 0, 3)
+			message = "<B>[src]</B> burps."
+			m_type = 2
 
 		if ("choke")
 			if (!muzzled)
@@ -119,11 +120,8 @@
 			m_type = 1
 
 		if ("scream")
-			if (!muzzled)
-				..(act)
-			else
-				message = "<B>[src]</B> makes a very loud noise."
-				m_type = 2
+			message = "<B>[src]</B> screams!"
+			m_type = 2
 
 		if ("shake")
 			message = "<B>[src]</B> shakes \his head."

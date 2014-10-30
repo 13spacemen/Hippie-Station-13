@@ -259,6 +259,7 @@
 			m_type = 1
 
 		if ("scream")
+			playsound(src.loc, 'sound/misc/scream_m.ogg', 50, 1, 5)
 			if (miming)
 				message = "<B>[src]</B> acts out a scream!"
 			else
