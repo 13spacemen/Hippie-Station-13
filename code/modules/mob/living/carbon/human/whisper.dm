@@ -33,49 +33,49 @@
 	if(stat == DEAD) //fuck you
 		src << "<span class='danger'><b>fuck you</b></span>"
 		playsound(src,'sound/misc/no.ogg',80,1)
-		spawn(2)
+		spawn(rand(0,5))
 			src << "<span class='danger'><b>fuck you</b></span>"
 			playsound(src,'sound/misc/no.ogg',80,1)
-			spawn(2)
+			spawn(rand(0,5))
 				src << "<span class='danger'><b>fuck you</b></span>"
 				playsound(src,'sound/misc/no.ogg',80,1)
-				spawn(2)
+				spawn(rand(0,5))
 					src << "<span class='danger'><b>fuck you</b></span>"
 					playsound(src,'sound/misc/no.ogg',80,1)
-					spawn(2)
+					spawn(rand(0,5))
 						src << "<span class='danger'><b>fuck you</b></span>"
 						playsound(src,'sound/misc/no.ogg',80,1)
-						spawn(2)
+						spawn(rand(0,5))
 							src << "<span class='danger'><b>fuck you</b></span>"
 							playsound(src,'sound/misc/no.ogg',80,1)
-							spawn(2)
+							spawn(rand(0,5))
 								src << "<span class='danger'><b>fuck you</b></span>"
 								playsound(src,'sound/misc/no.ogg',80,1)
-								spawn(2)
+								spawn(rand(0,5))
 									src << "<span class='danger'><b>fuck you</b></span>"
 									playsound(src,'sound/misc/no.ogg',80,1)
-									spawn(2)
+									spawn(rand(0,5))
 										src << "<span class='danger'><b>fuck you</b></span>"
 										playsound(src,'sound/misc/no.ogg',80,1)
-										spawn(2)
+										spawn(rand(0,5))
 											src << "<span class='danger'><b>fuck you</b></span>"
 											playsound(src,'sound/misc/no.ogg',80,1)
-											spawn(2)
+											spawn(rand(0,5))
 												src << "<span class='danger'><b>fuck you</b></span>"
 												playsound(src,'sound/misc/no.ogg',80,1)
-												spawn(2)
+												spawn(rand(0,5))
 													src << "<span class='danger'><b>fuck you</b></span>"
 													playsound(src,'sound/misc/no.ogg',80,1)
-													spawn(2)
+													spawn(rand(0,5))
 														src << "<span class='danger'><b>fuck you</b></span>"
 														playsound(src,'sound/misc/no.ogg',80,1)
-														spawn(2)
+														spawn(rand(0,5))
 															src << "<span class='danger'><b>fuck you</b></span>"
 															playsound(src,'sound/misc/no.ogg',80,1)
-															spawn(2)
+															spawn(rand(0,5))
 																src << "<span class='danger'><b>fuck you</b></span>"
 																playsound(src,'sound/misc/no.ogg',80,1)
-																spawn(2)
+																spawn(rand(0,5))
 																	src << "<span class='danger'><b>fuck you</b></span>"
 																	playsound(src,'sound/misc/no.ogg',80,1)
 		return
