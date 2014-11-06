@@ -96,6 +96,7 @@
 	var/global/list/status_overlays_equipment
 	var/global/list/status_overlays_lighting
 	var/global/list/status_overlays_environ
+	var/playedsound = 0 //For autoupdating when the APC changes
 
 /obj/machinery/power/apc/updateDialog()
 	if (stat & (BROKEN|MAINT))
@@ -1079,26 +1080,43 @@
 		// set channels depending on how much charge we have left
 
 		// Allow the APC to operate as normal if the cell can charge
+/*
 		if(charging && longtermpower < 10)
 			longtermpower += 1
 		else if(longtermpower > -10)
 			longtermpower -= 2
-
+*/
 		if(cell.charge <= 0)					// zero charge, turn all off
 			equipment = autoset(equipment, 0)
 			lighting = autoset(lighting, 0)
 			environ = autoset(environ, 0)
 			area.poweralert(0, src)
-		else if(cell.percent() < 15 && longtermpower < 0)	// <15%, turn off lighting & equipment
-			equipment = autoset(equipment, 2)
-			lighting = autoset(lighting, 2)
+		else if(cell.percent() < 15)	// <15%, turn off lighting & equipment
+			equipment = autoset(equipment, 0)
+			lighting = autoset(lighting, 0)
 			environ = autoset(environ, 1)
 			area.poweralert(0, src)
-		else if(cell.percent() < 30 && longtermpower < 0)			// <30%, turn off equipment
-			equipment = autoset(equipment, 2)
+			if(playedsound == 1)
+				playedsound = 2
+				for(var/area/A in area.related)
+					for(var/mob/L in A)
+						if(prob(99))
+							playsound(L, 'sound/machines/lights_out.ogg', 100, 1)
+						else
+							playsound(L, 'sound/machines/power_down2.ogg', 100, 1)
+
+		else if(cell.percent() < 30)			// <30%, turn off equipment
+			if(playedsound == 2)//Resets it to 0 because it needs to shutoff again.
+				playedsound = 0
+			equipment = autoset(equipment, 0)
 			lighting = autoset(lighting, 1)
 			environ = autoset(environ, 1)
 			area.poweralert(0, src)
+			if(playedsound == 0)//Only plays once.
+				for(var/area/A in area.related)
+					for(var/mob/L in A)
+						playedsound = 1
+						playsound(L, 'sound/machines/power_down.ogg', 100, 1)
 		else									// otherwise all can be on
 			equipment = autoset(equipment, 1)
 			lighting = autoset(lighting, 1)
@@ -1106,6 +1124,7 @@
 			area.poweralert(1, src)
 			if(cell.percent() > 75)
 				area.poweralert(1, src)
+			playedsound = 0//Ensures if there is power this stays 0
 
 		// now trickle-charge the cell
 

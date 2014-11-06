@@ -11,6 +11,7 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/shot
 	var/recentpump = 0 // to prevent spammage
 	var/pumped = 0
+	fire_sound = 'sound/New_sound/weapons/shotgun_shoot.ogg'
 
 /obj/item/weapon/gun/projectile/shotgun/attackby(var/obj/item/A as obj, mob/user as mob)
 	var/num_loaded = magazine.attackby(A, user, 1)

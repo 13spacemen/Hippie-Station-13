@@ -141,10 +141,10 @@
 
 		if ("me")
 			if (src.client)
-				if(client.prefs.muted & MUTE_IC)
+				if(client.prefs.muted & MUTE_IC || client.prefs.muted & MUTE_ME)
 					src << "You cannot send IC messages (muted)."
 					return
-				if (src.client.handle_spam_prevention(message,MUTE_IC))
+				if (src.client.handle_me_spam_prevention(message,MUTE_IC))
 					return
 			if (stat)
 				return
@@ -175,7 +175,17 @@
 			m_type = 1
 
 		if ("scream")
-			playsound(src.loc, 'sound/misc/scream_m.ogg', 50, 1, 5)
+			switch(gender)
+				if(MALE)
+					if(prob(50))
+						playsound(src.loc, 'sound/misc/scream_m1.ogg', 50, 1, 5)
+					else
+						playsound(src.loc, 'sound/misc/scream_m2.ogg', 50, 1, 5)
+				if(FEMALE)
+					if(prob(50))
+						playsound(src.loc, 'sound/misc/scream_f1.ogg', 50, 1, 5)
+					else
+						playsound(src.loc, 'sound/misc/scream_f2.ogg', 50, 1, 5)
 			message = "<B>[src]</B> screams!"
 			m_type = 2
 

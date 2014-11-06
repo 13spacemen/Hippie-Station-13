@@ -160,4 +160,4 @@ AUTOMUTE_ON
 ## Location of byond achievement hub
 ACHIEVEMENT_HUB Foos.FPStationMedals
 ## Password for byond 
-ACHIEVEMENT_PASSWORD
+ACHIEVEMENT_PASSWORD 

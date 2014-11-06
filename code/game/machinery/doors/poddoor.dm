@@ -43,6 +43,7 @@
 		return
 
 	operating = 1
+	playsound(src.loc, 'sound/machines/blast_door.ogg', 100, 1)
 	flick("opening", src)
 	icon_state = "open"
 	SetOpacity(0)

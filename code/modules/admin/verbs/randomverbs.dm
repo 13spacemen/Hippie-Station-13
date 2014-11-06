@@ -102,6 +102,7 @@ proc/cmd_admin_mute(whom, mute_type, automute = 0)
 	var/mute_string
 	switch(mute_type)
 		if(MUTE_IC)			mute_string = "IC (say and emote)"
+		if(MUTE_ME)			mute_string = "Me commands"
 		if(MUTE_OOC)		mute_string = "OOC"
 		if(MUTE_PRAY)		mute_string = "pray"
 		if(MUTE_ADMINHELP)	mute_string = "adminhelp, admin PM and ASAY"

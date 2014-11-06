@@ -66,6 +66,20 @@
 		last_message = message
 		src.last_message_count = 0
 		return 0
+var/global/memute = rand(3,6)
+/client/proc/handle_me_spam_prevention(var/message, var/mute_type)
+	if(config.automute_on && !holder && src.last_message == message)
+		src.last_message_count++
+		if(src.last_message_count >= 5)
+			src << "<span class='danger'>You have exceeded the spam filter limit for identical messages. A /me auto-mute was applied.</span>"
+			cmd_admin_mute(src, mute_type, 1)
+			return 1
+
+	else
+		last_message = message
+		src.last_message_count = 0
+		return 0
+
 
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)

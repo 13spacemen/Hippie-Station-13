@@ -3,7 +3,7 @@
 	name = "revolver"
 	icon_state = "revolver"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder
-
+	fire_sound = 'sound/New_sound/weapons/revolver_shoot.ogg'
 /obj/item/weapon/gun/projectile/revolver/chamber_round()
 	if (chambered || !magazine)
 		return
