@@ -316,6 +316,10 @@
 			src.inertia_dir = get_dir(target, src)
 			step(src, inertia_dir)
 
+		animate(item, transform = turn(matrix(), 360), time = 60, loop = -1) //lmao
+		world << "threw an item and span it"
+
+
 
 /*
 		if(istype(src.loc, /turf/space) || (src.flags & NOGRAV)) //they're in space, move em one space in the opposite direction

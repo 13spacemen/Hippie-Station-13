@@ -175,7 +175,7 @@
 			m_type = 1
 
 		if ("scream")
-			playsound(src.loc, 'sound/misc/scream_m.ogg', 50, 1, 5)
+			playsound(src.loc, 'sound/misc/plaguuu.ogg', 50, 1, 5) //your reward for breaking emotes
 			message = "<B>[src]</B> screams!"
 			m_type = 2
 

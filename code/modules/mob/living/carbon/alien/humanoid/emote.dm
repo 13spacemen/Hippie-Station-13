@@ -46,6 +46,12 @@
 				message = "<span class='name'>[src]</span> scratches."
 				m_type = 1
 
+		if ("scream")
+			if (!muzzled)
+				playsound(src.loc, 'sound/voice/hiss6.ogg', 35, 1, 5)
+				message = "<span class='name'>[src]</span> screams!"
+				m_type = 2
+
 		if ("scretch")
 			if (!muzzled)
 				message = "<span class='name'>[src]</span> scretches."

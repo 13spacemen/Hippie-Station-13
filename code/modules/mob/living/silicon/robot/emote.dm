@@ -171,6 +171,11 @@
 				else
 					message = "<B>[src]</b> salutes."
 
+		if ("scream")
+			message = "<B>[src]</B> screams!"
+			playsound(src.loc, 'sound/machines/warning-buzzer.ogg', 50, 0)
+			m_type = 1
+
 		if ("stare")
 			var/M = null
 			if (param)
