@@ -169,7 +169,8 @@ Security Officer
 
 /datum/job/officer/equip_items(var/mob/living/carbon/human/H)
 	assign_sec_to_department(H)
-
+	if(H.client.goodcurity)
+		H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/navy(H), slot_w_uniform)
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 	H.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(H), slot_wear_suit)
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/helmet(H), slot_head)
@@ -206,22 +207,34 @@ var/list/sec_departments = list("engineering", "supply", "medical", "science")
 		var/destination = null
 		switch(department)
 			if("supply")
-				H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/security/cargo(H), slot_w_uniform)
+				if(!H.client.goodcurity)
+					H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/security/cargo(H), slot_w_uniform)
+				else
+					return
 				default_headset = /obj/item/device/radio/headset/headset_sec/department/supply
 				dep_access = list(access_mailsorting, access_mining)
 				destination = /area/security/checkpoint/supply
 			if("engineering")
-				H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/security/engine(H), slot_w_uniform)
+				if(!H.client.goodcurity)
+					H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/security/engine(H), slot_w_uniform)
+				else
+					return
 				default_headset = /obj/item/device/radio/headset/headset_sec/department/engi
 				dep_access = list(access_construction, access_engine)
 				destination = /area/security/checkpoint/engineering
 			if("medical")
-				H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/security/med(H), slot_w_uniform)
+				if(!H.client.goodcurity)
+					H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/security/med(H), slot_w_uniform)
+				else
+					return
 				default_headset = /obj/item/device/radio/headset/headset_sec/department/med
 				dep_access = list(access_medical)
 				destination = /area/security/checkpoint/medical
 			if("science")
-				H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/security/science(H), slot_w_uniform)
+				if(!H.client.goodcurity)
+					H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/security/science(H), slot_w_uniform)
+				else
+					return
 				default_headset = /obj/item/device/radio/headset/headset_sec/department/sci
 				dep_access = list(access_research)
 				destination = /area/security/checkpoint/science
