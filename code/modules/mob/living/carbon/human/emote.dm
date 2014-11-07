@@ -201,10 +201,10 @@
 			if(silent)
 				return
 			if (src.client)
-				if (client.prefs.muted & MUTE_IC)
+				if (client.prefs.muted & MUTE_ME)
 					src << "<span class='danger'>You cannot send IC messages (muted).</span>"
 					return
-				if (src.client.handle_spam_prevention(message,MUTE_IC))
+				if (src.client.handle_me_spam_prevention(message,MUTE_ME))
 					return
 			if (stat)
 				return

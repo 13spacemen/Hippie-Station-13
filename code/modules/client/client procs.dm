@@ -66,7 +66,7 @@
 		last_message = message
 		src.last_message_count = 0
 		return 0
-var/global/memute = rand(3,6)
+
 /client/proc/handle_me_spam_prevention(var/message, var/mute_type)
 	if(config.automute_on && !holder && src.last_message == message)
 		src.last_message_count++
