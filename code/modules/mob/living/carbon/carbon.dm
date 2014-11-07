@@ -317,7 +317,7 @@
 			step(src, inertia_dir)
 
 		animate(item, transform = turn(matrix(), 360), time = 60, loop = -1) //lmao
-		world << "threw an item and span it"
+	//	world << "threw an item and span it"
 
 
 

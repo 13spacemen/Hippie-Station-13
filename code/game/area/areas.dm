@@ -171,6 +171,17 @@
 	updateicon()
 	mouse_opacity = 0
 
+/area/proc/gatesalert()
+	warpgate = 1
+	updateicon()
+	mouse_opacity = 0
+
+/area/proc/gatereset()
+	warpgate = 0
+	updateicon()
+	mouse_opacity = 0
+
+
 /area/proc/readyalert()
 	if(name == "Space")
 		return
@@ -313,7 +324,8 @@
 			icon_state = "alert_rainbow" */
 		else
 			icon_state = "alert_rainbow"
-
+	else if(warpgate)//What the fuck is going on above this line I don't even
+		icon_state = "warp"
 
 /*
 #define EQUIP 1

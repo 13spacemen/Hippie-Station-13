@@ -32,6 +32,7 @@ a img {border:none;}
 .indrop img {margin-right:5px;vertical-align:middle;}
 .closed {background:url(chevron-expand.png) right center no-repeat;}
 .open {background:url(chevron.png) right center no-repeat;}
+.openback{background:url(chevron.png)}
 .lic {font-size:9px; background-color: white}
 .test {
     position:relative;

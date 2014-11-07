@@ -1,12 +1,13 @@
 /obj/machinery/stargate
 	name = "Gate"
-	icon = 'icons/obj/largegate.dmi'
+	icon_state = "port"
+	icon = 'icons/scooterstuff.dmi'
 	density = 1
 	anchored = 1
 	dir = 2
 	use_power = 0
 	unacidable = 1
-
+	var/area/area
 	ex_act(serverity)
 		return
 
@@ -14,52 +15,8 @@
 		return
 
 /obj/machinery/stargate/New()
+	area = src.loc.loc:master
 	..()
-
-/obj/machinery/stargate/side
-	var/obj/machinery/stargate/center/center = null
-
-
-	New(loc, var/obj/machinery/stargate/center/C)
-		center = C
-		..(loc)
-		return
-
-
-	Bumped(atom/AM)
-		if(!center)
-			return
-		if(!center.active)
-			return
-		center.port_user(AM,src)
-		return
-
-
-/obj/machinery/stargate/side/left
-	icon_state = "left"
-	pixel_x = -4
-	pixel_y = 0
-
-	update_icon()
-		if(!center)	return
-		if(center.active)
-			icon_state = "left_on"
-		else
-			icon_state = "left"
-		return
-
-/obj/machinery/stargate/side/right
-	icon_state = "right"
-	pixel_x = 2
-	pixel_y = 0
-
-	update_icon()
-		if(!center)	return
-		if(center.active)
-			icon_state = "right_on"
-		else
-			icon_state = "right"
-		return
 
 
 /obj/machinery/stargate/center
@@ -91,8 +48,6 @@
 
 	New()
 		//Currently will only work down
-		left = new/obj/machinery/stargate/side/left(get_step(src,8), src)
-		right = new/obj/machinery/stargate/side/right(get_step(src,4), src)
 
 		//Might want to take another look at code gen
 		if(!id)//Can name gates
@@ -113,13 +68,12 @@
 		if(!active && use_power != 1)
 			use_power = 50
 
-		if(active && !receiving)//Gates receiving do not need power
-			if(stat & (BROKEN|NOPOWER))
-				if(src.shutdown_gate())//However gates that cant shut down ignore power
-					if(src.active >= 1)
-						src.active = 0
-						update_icon()
-		return
+//		if(active && !receiving)//Gates receiving do not need power
+//			if(stat & (BROKEN|NOPOWER))
+//
+//					if(src.active >= 1)
+//						src.active = 0
+//						update_icon()
 
 
 	Bumped(atom/AM)//Should have a tele delay, needs rework
@@ -129,10 +83,10 @@
 			var/mob/M = AM
 			port_user(M,src)
 			M.unlock_achievement("Not of this World")
-		else if(isobj(AM))//Will need to change up what can come though likely
-			var/obj/O = AM
+//		else if(isobj(AM))//Will need to change up what can come though likely
+//			var/obj/O = AM
 			//if(istype(O,/obj/bullet)||istype(O,/obj/laser))	return
-			port_user(O,src)
+			teleroom()
 		return
 
 
@@ -155,15 +109,9 @@
 		//Is the other gate intact?
 		if(!linked_gate)
 			return 0//Should likely shutdown
-		if(!linked_gate.left || !linked_gate.right)
-			return 0
 		//Teleport them
 		if(istype(G,/obj/machinery/stargate/center))
 			target.loc = get_turf(linked_gate.loc)
-		else if(istype(G,/obj/machinery/stargate/side/left))
-			target.loc = get_turf(linked_gate.left.loc)
-		else if(istype(G,/obj/machinery/stargate/side/right))
-			target.loc = get_turf(linked_gate.right.loc)
 		//Move them off of the gate
 		step(target,linked_gate.dir)
 		return
@@ -171,13 +119,9 @@
 
 	update_icon()
 		if(active)
-			icon_state = "mid_on"
+			icon_state = "port_on"
 		else
-			icon_state = "mid"
-		if(left)
-			left.update_icon()
-		if(right)
-			right.update_icon()
+			icon_state = "port"
 		return
 
 
@@ -203,8 +147,25 @@
 			return 1
 		return 0
 
+	proc/teleroom()
 
-	proc/shutdown_gate()
+		for(var/area/A in area.related)
+			A.gatesalert()
+			icon_state = "port-on"
+			spawn(50)
+				for(var/mob/L in A)
+					var/mobloc = get_turf(L.loc)
+					var/atom/movable/overlay/animation = new /atom/movable/overlay( mobloc )
+					animation.name = "warp"
+					animation.density = 0
+					animation.anchored = 1
+					animation.icon = 'icons/scooterstuff.dmi'
+					animation.layer = 5
+					animation.master = L
+					flick("warp", animation)
+					spawn(10)
+						L.loc = get_turf(linked_gate.loc)
+						A.gatereset()
 		//We dont have another gate for some reason
 		if(!src.linked_gate)
 			if(active)

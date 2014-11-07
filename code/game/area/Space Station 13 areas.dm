@@ -23,6 +23,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	var/alert = null
 	var/danger = null
 	var/caution = null
+	var/warpgate = null
 	var/warn = null
 	var/rads = null
 	level = null

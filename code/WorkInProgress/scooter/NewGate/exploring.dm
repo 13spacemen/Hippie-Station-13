@@ -89,12 +89,12 @@
 			usr.machine = src
 
 			var/mob/living/M = locate(href_list["umob"])
-			if (href_list["stop"])
-				if(gate.active)
-					if(gate.shutdown_gate())
-						M << "\green Gate shutdown!"
-					else
-						M << "\red Shutdown failed!"
+		//	if (href_list["stop"])
+//				if(gate.active)
+//					if(gate.shutdown_gate())
+//						M << "\green Gate shutdown!"
+//					else
+//						M << "\red Shutdown failed!"
 
 			if(href_list["start"])
 				if(gate.active)
