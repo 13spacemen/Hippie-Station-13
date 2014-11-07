@@ -110,7 +110,7 @@
 				if (M)
 					message = "<B>[src]</B> gives daps to [M]."
 				else
-					message = "<B>[src]</B> sadly can't find anybody to give daps to, and daps \himself. Shameful."
+					message = "<B>[src]</B> sadly can't find anybody to give daps to, and daps \himself. A shameful [src]."
 
 		if ("eyebrow")
 			message = "<B>[src]</B> raises an eyebrow."
@@ -262,27 +262,28 @@
 			if (miming)
 				message = "<B>[src]</B> acts out a scream!"
 			else
-				..(act)
-			switch(gender)
-				if(MALE)
-					if(prob(50))
-						playsound(src.loc, 'sound/misc/scream_m1.ogg', 50, 1, 5)
-					else
-						playsound(src.loc, 'sound/misc/scream_m2.ogg', 50, 1, 5)
-				if(FEMALE)
-					if(prob(50))
-						playsound(src.loc, 'sound/misc/scream_f1.ogg', 50, 1, 5)
-					else
-						playsound(src.loc, 'sound/misc/scream_f2.ogg', 50, 1, 5)
-			message = "<B>[src]</B> screams!"
-			m_type = 2
-
-
-			playsound(src.loc, 'sound/misc/scream_m.ogg', 50, 1, 5)
-			if (miming)
-				message = "<B>[src]</B> acts out a scream!"
-			else
-				..(act)
+				if(prob(5))
+					playsound(src.loc, 'sound/misc/scream_wilhelm.ogg', 50, 1, 5) //do i need to explain this
+					..(act)
+				else
+					if(src.gender == MALE)
+						if(prob(50))
+							playsound(src.loc, 'sound/misc/scream_m1.ogg', 50, 1, 5)
+						else if(prob(25))
+							playsound(src.loc, 'sound/misc/scream_m2.ogg', 50, 1, 5)
+						else
+							playsound(src.loc, 'sound/misc/scream_m.ogg', 35, 1, 5)
+						..(act)
+					if(src.gender == FEMALE)
+						if(prob(50))
+							playsound(src.loc, 'sound/misc/scream_f1.ogg', 50, 1, 5)
+						else if(prob(25))
+							playsound(src.loc, 'sound/misc/scream_f2.ogg', 50, 1, 5)
+						else
+							playsound(src.loc, 'sound/misc/scream_f.ogg', 35, 1, 5)
+						..(act)
+					else if(src.gender == !MALE || !FEMALE) //fail safe or something
+						..(act)
 
 		if ("shiver")
 			message = "<B>[src]</B> shivers."
@@ -365,4 +366,3 @@
 		else if (m_type & 2)
 			for (var/mob/O in hearers(src.loc, null))
 				O.show_message(message, m_type)
-

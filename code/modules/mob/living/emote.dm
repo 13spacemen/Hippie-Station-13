@@ -144,7 +144,7 @@
 				if(client.prefs.muted & MUTE_IC || client.prefs.muted & MUTE_ME)
 					src << "You cannot send IC messages (muted)."
 					return
-				if (src.client.handle_me_spam_prevention(message,MUTE_IC))
+				if (src.client.handle_me_spam_prevention(message,MUTE_ME))
 					return
 			if (stat)
 				return
