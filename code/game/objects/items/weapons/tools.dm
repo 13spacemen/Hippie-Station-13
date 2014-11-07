@@ -15,8 +15,8 @@
  * Wrench
  */
 /obj/item/weapon/wrench
-	name = "wrench"
-	desc = "A wrench with common uses. Can be found in your hand."
+	name = "Spanner"
+	desc = "threw an item and span it"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "wrench"
 	flags = CONDUCT

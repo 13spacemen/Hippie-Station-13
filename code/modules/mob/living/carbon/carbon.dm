@@ -315,8 +315,12 @@
 		if(!has_gravity(src))
 			src.inertia_dir = get_dir(target, src)
 			step(src, inertia_dir)
-
-		animate(item, transform = turn(matrix(), 360), time = 60, loop = -1) //lmao
+		if(istype(item, /mob/))
+			item.throw_at(target, item.throw_range, item.throw_speed)
+			return
+		else
+			animate(item, transform = turn(matrix(), 360), time = 60, loop = -1) //lmao
+			item.throw_at(target, item.throw_range, item.throw_speed)
 	//	world << "threw an item and span it"
 
 
@@ -329,7 +333,7 @@
 
 
 
-		item.throw_at(target, item.throw_range, item.throw_speed)
+
 
 /mob/living/carbon/can_use_hands()
 	if(handcuffed)
