@@ -86,6 +86,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 
 /mob/dead/observer/Move(NewLoc, direct)
+	if(src.z >= 10 && src.client && !src.client.holder)//Ghostproofing
+		src.z = 1
 	if(NewLoc)
 		loc = NewLoc
 		for(var/obj/effect/step_trigger/S in NewLoc)

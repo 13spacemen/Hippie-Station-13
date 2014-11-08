@@ -178,9 +178,8 @@
 
 /area/proc/gatereset()
 	warpgate = 0
-	updateicon()
 	mouse_opacity = 0
-
+	updateicon()
 
 /area/proc/readyalert()
 	if(name == "Space")
@@ -293,25 +292,27 @@
 	return
 
 /area/proc/updateicon()
-	if ((fire || eject || party || alert || danger) && (!requires_power||power_environ) && !lighting_space)//If it doesn't require power, can still activate this proc.
+	if ((fire || eject || party || alert || danger || warpgate) && (!requires_power||power_environ) && !lighting_space)//If it doesn't require power, can still activate this proc.
 		if(fire && !eject && !party && !alert && !danger && !rads && !caution && !warn)
 			icon_state = "blue" //why this is not fire I have no idea
 		/*else if(atmosalm && !fire && !eject && !party)
 			icon_state = "bluenew"*/
-		else if(!fire && eject && !party && !alert && !danger && !rads && !caution && !warn)
+		else if(!fire && eject && !party && !alert && !danger && !rads && !caution && !warn && !warpgate)
 			icon_state = "radiation"
-		else if(party && !fire && !eject && !alert && !danger && !rads && !caution && !warn)
+		else if(party && !fire && !eject && !alert && !danger && !rads && !caution && !warn && !warpgate)
 			icon_state = "party"
-		else if(alert && !party && !fire && !eject && !danger && !rads && !caution && !warn)
+		else if(alert && !party && !fire && !eject && !danger && !rads && !caution && !warn && !warpgate)
 			icon_state = "alert_OHSHIT"
-		else if(danger && !alert && !party && !fire && !eject && !rads && !caution && !warn)
+		else if(danger && !alert && !party && !fire && !eject && !rads && !caution && !warn && !warpgate)
 			icon_state = "alert_danger"
-		else if(rads && !danger && !alert && !party && !fire && !eject && !caution && !warn)
+		else if(rads && !danger && !alert && !party && !fire && !eject && !caution && !warn && !warpgate)
 			icon_state = "radiation"
-		else if(!rads && !danger && !alert && !party && !fire && !eject && caution && !warn)
+		else if(!rads && !danger && !alert && !party && !fire && !eject && caution && !warn && !warpgate)
 			icon_state = "alert_caution"
-		else if(!rads && !danger && !alert && !party && !fire && !eject && !caution && warn)
+		else if(!rads && !danger && !alert && !party && !fire && !eject && !caution && warn && !warpgate)
 			icon_state = "alert_warning"
+		else if(!rads && !danger && !alert && !party && !fire && !eject && !caution && !warn && warpgate)
+			icon_state = "warp"
 		/*else if(!party && !fire && !eject && caution && !warning && !danger && !ohshit && !rainbow)
 			icon_state = "alert_caution"
 		else if(!party && !fire && !eject && !caution && warning && !danger && !ohshit && !rainbow)
@@ -324,9 +325,8 @@
 			icon_state = "alert_rainbow" */
 		else
 			icon_state = "alert_rainbow"
-	else if(warpgate)//What the fuck is going on above this line I don't even
-		icon_state = "warp"
-
+	else
+		icon_state = ""
 /*
 #define EQUIP 1
 #define LIGHT 2

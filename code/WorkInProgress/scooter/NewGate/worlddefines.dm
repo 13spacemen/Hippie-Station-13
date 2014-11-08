@@ -36,6 +36,9 @@
 	name = "Satellite #3"
 	icon_state = "start"
 
+/area/gatewaymissions/
+	var/locationname = null
+
 //Areas for the diff "worlds", todo: have these be build randomly at spawn
 /area/gatewaymissions/world1
 	name = "Unknown"

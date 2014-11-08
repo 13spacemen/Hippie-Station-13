@@ -7,7 +7,8 @@
 	dir = 2
 	use_power = 0
 	unacidable = 1
-	var/area/area
+	var/area/gatewaymissions/area
+	var/locationname = null
 	ex_act(serverity)
 		return
 
@@ -16,11 +17,12 @@
 
 /obj/machinery/stargate/New()
 	area = src.loc.loc:master
+	locationname = area.locationname
 	..()
 
 
 /obj/machinery/stargate/center
-	icon_state = "mid"
+	icon_state = "port"
 	pixel_x = -1
 	pixel_y = 0
 
@@ -31,10 +33,7 @@
 	var/id = null//The name of the gate
 	var/code = ""//Connection code
 	var/list/code_parts = new/list()//The code broken up into a list for the decoder
-	//The rest of the gate
-	var/obj/machinery/stargate/side/left = null
-	var/obj/machinery/stargate/side/right = null
-	//Anyone we connected to
+
 	var/obj/machinery/stargate/center/linked_gate = null
 
 	var/active = 0
@@ -46,8 +45,9 @@
 	var/world_issetup = 0
 
 
+
 	New()
-		//Currently will only work down
+
 
 		//Might want to take another look at code gen
 		if(!id)//Can name gates
@@ -76,18 +76,8 @@
 //						update_icon()
 
 
-	Bumped(atom/AM)//Should have a tele delay, needs rework
-		if(!src.active)	return
-		if(!src.linked_gate)	return
-		if(ismob(AM))
-			var/mob/M = AM
-			port_user(M,src)
-			M.unlock_achievement("Not of this World")
-//		else if(isobj(AM))//Will need to change up what can come though likely
-//			var/obj/O = AM
-			//if(istype(O,/obj/bullet)||istype(O,/obj/laser))	return
-			teleroom()
-		return
+
+
 
 
 	proc/port_user(var/atom/movable/target, var/obj/machinery/stargate/G)
@@ -144,6 +134,7 @@
 			visible_message("\red The [src] starts up!")
 
 			gate.setup_miniworld()//Should be moved to control
+			teleroom()
 			return 1
 		return 0
 
@@ -163,28 +154,10 @@
 					animation.layer = 5
 					animation.master = L
 					flick("warp", animation)
-					spawn(10)
-						L.loc = get_turf(linked_gate.loc)
-						A.gatereset()
-		//We dont have another gate for some reason
-		if(!src.linked_gate)
-			if(active)
-				active = 0
-				update_icon()
-			return 1
-		//If either gate is preventing shutdown then fail
-		if(!src.can_shutdown || !src.linked_gate.can_shutdown)
-			return 0
-		//Reset vars
-		linked_gate.linked_gate = null
-		linked_gate.active = 0
-		linked_gate.update_icon()
-		linked_gate.visible_message("\red The [linked_gate] Shuts down!")
-		linked_gate = null
-		active = 0
-		src.update_icon()
-		visible_message("\red The [name] Shuts down!")
-		return 1
+					L.loc = get_turf(linked_gate.loc)
+					step(L,linked_gate.dir)
+				A.gatereset()
+				icon_state = "port"
 
 	//This should go in the world control thing
 	proc/setup_miniworld()
