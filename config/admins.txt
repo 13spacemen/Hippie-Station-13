@@ -31,5 +31,5 @@ Crystalwarrior160 = Trial Admin
 GeorgeMelons = Game Master
 themostcleverbot = Game Admin
 ChronicPwnage = Game Admin
-Redswandir = Host
+Redswandir = Coder
 HITHISISFRONK = Trial Admin
