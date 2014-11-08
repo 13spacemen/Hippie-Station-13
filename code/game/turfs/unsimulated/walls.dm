@@ -29,6 +29,14 @@ turf/unsimulated/wall/splashscreen
 	icon_state = "r_wall"
 	name = "reinforced wall"
 
+/turf/unsimulated/wall/other/space
+	icon = 'icons/turf/space.dmi'
+	icon_state = "3"
+	name = "reinforced wall"
+
+	New()
+		icon_state = pick("1","2","3")
+
 /turf/unsimulated/shuttle
 	name = "shuttle"
 	icon = 'icons/turf/shuttle.dmi'
