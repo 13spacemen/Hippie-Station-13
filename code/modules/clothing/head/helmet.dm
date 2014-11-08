@@ -85,10 +85,11 @@
 
 /obj/item/clothing/head/helmet/fathermask
 	name = "father's mask"
-	desc = "An ancient mask that seem to portray a fatherly face, what this mask is used for is unknown."
+	desc = "An ancient mask that seem to portray a fatherly face. The purpose of this mask is unknown."
 	icon_state = "fathermask"
 	item_state = "fathermask"
 	flags = BLOCKHAIR
+	slowdown = SHOES_SLOWDOWN-6 //holy FUCK
 	armor = list(melee = 30, bullet = 5, laser = 25,energy = 15, bomb = 15, bio = 15, rad = 20)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 

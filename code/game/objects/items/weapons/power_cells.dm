@@ -117,3 +117,63 @@
 	m_amt = 0
 	g_amt = 0
 	rating = 3
+
+/obj/item/weapon/stock_parts/cell/gun/pistol
+	name = "\improper Nanotrasen brand rechargable AA battery"
+	desc = "this is for pistol type guns, a 6shot"
+	origin_tech = "powerstorage=0"
+	maxcharge = 600 //6 shots, like a energy revolver
+	g_amt = 40
+	rating = 2
+
+/obj/item/weapon/stock_parts/cell/gun/pistol/empty/New()
+	..()
+	charge = 0
+
+/obj/item/weapon/stock_parts/cell/gun/rifle
+	name = "\improper Nanotrasen brand rechargable AA battery"
+	desc = "this is for rifle type guns, a 15 clips"
+	origin_tech = "powerstorage=0"
+	maxcharge = 1500 //15 shoots because ye
+	g_amt = 40
+	rating = 2
+
+/obj/item/weapon/stock_parts/cell/gun/rifle/empty/New()
+	..()
+	charge = 0
+
+/obj/item/weapon/stock_parts/cell/gun/godfuckthis
+	name = "\improper Nanotrasen brand rechargable AA battery"
+	desc = "this is for rifle type guns, a 15 clips"
+	origin_tech = "powerstorage=0"
+	maxcharge = 2000 //20 shoots because ye
+	g_amt = 40
+	rating = 2
+
+/obj/item/weapon/stock_parts/cell/gun/rifle/empty/New()
+	..()
+	charge = 0
+
+/obj/item/weapon/stock_parts/cell/gun/battle
+	name = "\improper Nanotrasen brand rechargable AA battery"
+	desc = "this is for rifle type guns, a whole 36 clips"
+	origin_tech = "powerstorage=0"
+	maxcharge = 3000 //BXR time
+	g_amt = 40
+	rating = 2
+
+/obj/item/weapon/stock_parts/cell/gun/battle/empty/New()
+	..()
+	charge = 0
+
+/obj/item/weapon/stock_parts/cell/gun/assault
+	name = "\improper Nanotrasen brand rechargable AA battery"
+	desc = "this is for rifle type guns, a whole 36 clips"
+	origin_tech = "powerstorage=0"
+	maxcharge = 6000 //fucking halo1 shit
+	g_amt = 40
+	rating = 2
+
+/obj/item/weapon/stock_parts/cell/gun/assault/empty/New()
+	..()
+	charge = 0

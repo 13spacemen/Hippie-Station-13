@@ -121,3 +121,9 @@
 	select_name  = "disable"
 	e_cost = 50
 	fire_sound = "sound/weapons/taser.ogg"
+
+/obj/item/ammo_casing/energy/notalaser //patriot only
+	projectile_type = /obj/item/projectile/bullet/midbullet2
+	select_name = "YOU BROKE IT, CONGRATS YOU BROKE THE GAME, WHOEVER MADE THIS GUN WITH THIS SETTING IS A BLEEDIN RETARD"
+	fire_sound = 'sound/weapons/gunshot.ogg'
+	e_cost = 1
