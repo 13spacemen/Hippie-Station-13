@@ -315,15 +315,15 @@
 		if(!has_gravity(src))
 			src.inertia_dir = get_dir(target, src)
 			step(src, inertia_dir)
-			item.SpinAnimation(1, 5) //speed, duration //not -1 because I want it to stop at some point
+			item.SpinAnimation(2, 7) //speed, duration //not -1 because I want it to stop at some point
 		else if(has_gravity(src))
-			item.SpinAnimation(1, 1) //speed, duration
+			item.SpinAnimation(2, 2) //speed, duration
 		if(istype(item, /mob/))
 			item.throw_at(target, item.throw_range, item.throw_speed)
 			if(isliving(item))
-				item:spin(1, 1) //spintime, speed //fucking christ I have to use a colon here
+				item:spin(2, 2) //spintime, speed //fucking christ I have to use a colon here
 			else
-				item.SpinAnimation(1, 1) //speed, duration
+				item.SpinAnimation(2, 2) //speed, duration
 			return
 
 		item.throw_at(target, item.throw_range, item.throw_speed)
