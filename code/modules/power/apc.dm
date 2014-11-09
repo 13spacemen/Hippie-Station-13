@@ -1100,10 +1100,7 @@
 				playedsound = 2
 				for(var/area/A in area.related)
 					for(var/mob/L in A)
-						if(prob(99))
-							playsound(L, 'sound/machines/lights_out.ogg', 100, 1)
-						else
-							playsound(L, 'sound/machines/power_down2.ogg', 100, 1)
+						playsound(L, 'sound/machines/lights_out.ogg', 100, 1)
 
 		else if(cell.percent() < 30)			// <30%, turn off equipment
 			if(playedsound == 2)//Resets it to 0 because it needs to shutoff again.

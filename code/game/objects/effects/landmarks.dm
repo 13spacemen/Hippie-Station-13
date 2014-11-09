@@ -251,20 +251,24 @@
 	del(src)
 
 /obj/effect/landmark/vault/bigboss/New()
-//also patriot gunz... when I get around to that on this codebase :v: -reds
 	new /obj/item/clothing/mask/cigarette/cigar/havana(src.loc)
 	new /obj/item/clothing/glasses/eyepatch(src.loc)
 	new /obj/item/clothing/gloves/black(src.loc)
 	new /obj/item/clothing/under/suit_jacket/really_black(src.loc)
 	new /obj/item/clothing/suit/det_suit(src.loc)
 	new /obj/item/clothing/shoes/syndigaloshes(src.loc)
+	new /obj/item/weapon/gun/energy/gun/nuclear/patriot(src.loc)
 	del(src)
-/*
+
 /obj/effect/landmark/vault/clownemperor/New()
 	new /obj/item/clothing/mask/gas/clown_hat(src.loc)
-	new /obj/item/clothing/head/helmet/space/rig/wizard/clown(src.loc)
+	//new /obj/item/clothing/head/helmet/space/rig/wizard/clown(src.loc)
 	new /obj/item/clothing/gloves/rainbow(src.loc)
 	new /obj/item/clothing/under/rank/clown(src.loc)
-	new /obj/item/clothing/suit/space/rig/wizard/clown(src.loc)
-	new /obj/item/clothing/shoes/sandal/clown(src.loc)
-*/ //removed because no clown emperor gear
+	//new /obj/item/clothing/suit/space/rig/wizard/clown(src.loc)
+	//new /obj/item/clothing/shoes/sandal/clown(src.loc)
+
+/obj/effect/landmark/vault/giantdad/New()
+	new /obj/item/clothing/head/helmet/fathermask(src.loc)
+	new /obj/item/clothing/suit/armor/giantsarmor(src.loc)
+	del(src)
