@@ -228,3 +228,63 @@
 
 /turf/space/handle_slip()
 	return
+
+
+/turf/space/other/New()
+	icon_state = icon_state
+	//overlays.Cut()
+
+/turf/space/other/warp
+	icon = 'icons/turf/walls.dmi'
+	name = "\proper the warp"
+	icon_state = "warpbetter"
+
+	temperature = 277 //ain't nobody got nothing to say about a 40 degree day
+	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
+	heat_capacity = 700000
+
+/turf/space/other/warp/derelict
+	name = "\proper the warp"
+
+	var/teleport_x = null	// teleportation coordinates (if one is null, then no teleport!)
+	var/teleport_y = null
+	var/teleport_z = null
+	var/teleport_x_offset = 0
+	var/teleport_y_offset = 0
+	var/teleport_z_offset = 0
+
+/turf/space/other/warp/derelict/Entered(atom/movable/A)
+	var/mob/living/M
+	if(prob(34))
+		..()
+	if(prob(33))
+		if(teleport_x && teleport_y && teleport_z)
+			if(teleport_x_offset && teleport_y_offset && teleport_z_offset)
+
+				A.x = rand(teleport_x, teleport_x_offset)
+				A.y = rand(teleport_y, teleport_y_offset)
+				A.z = rand(teleport_z, teleport_z_offset)
+	if(prob(33))
+		if(istype(M,/mob/living))
+			visible_message("<span class='danger'>[M] falls into the warp!</span>", "<span class='danger'>You fall into the warp!</span>")
+			M.emote("scream")
+			M.dust() //one day I'll make a warp station just for you
+
+/turf/space/other/sun
+	icon = 'icons/effects/fire.dmi'
+	name = "\proper surface of the sun"
+	desc = "Woah, is it safe to be looking at this thing?"
+	icon_state = "3"
+
+	temperature = 500000 //fucking sheeeit
+	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
+	heat_capacity = 700000
+
+/turf/space/other/sun/Entered(mob/living/M as mob)
+	if(prob(90))
+		..() //do nothing to stop the poor fool from moving around
+	if(prob(10))
+		visible_message("<span class='danger'>[M] falls into the sun!</span>", "<span class='danger'>You fall into the sun!</span>")
+		M.emote("scream")
+		M.dust()
+

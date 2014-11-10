@@ -136,6 +136,18 @@ proc/process_ghost_teleport_locs()
 	ambientsounds = list('sound/ambience/ambispace.ogg','sound/ambience/title2.ogg',)
 
 
+/area/warp
+	name = "the warp"
+	icon_state = "warp"
+	requires_power = 1
+	always_unpowered = 1
+	has_gravity = 1
+	lighting_use_dynamic = 0
+	power_light = 0
+	power_equip = 0
+	power_environ = 0
+	ambientsounds = list('sound/ambience/ambispace.ogg','sound/ambience/title2.ogg',)
+
 
 //These are shuttle areas, they must contain two areas in a subgroup if you want to move a shuttle from one
 //place to another. Look at escape shuttle for example.
@@ -1533,7 +1545,7 @@ proc/process_ghost_teleport_locs()
 	has_gravity = 0
 
 /area/spaceareas/space_beacons/station/east
-	name = "East of Arrivals"
+	name = "East of Escape"
 	icon_state = "red"
 	has_gravity = 0
 
@@ -1674,6 +1686,19 @@ proc/process_ghost_teleport_locs()
 	requires_power = 0
 	has_gravity = 1
 	ambientsounds = list('sound/ambience/shore.ogg', 'sound/ambience/seag1.ogg','sound/ambience/seag2.ogg','sound/ambience/seag2.ogg')
+
+
+////////////////////
+/////WARP AREAS/////
+////////////////////
+
+/area/warp/ucannotleave
+	name = "the warp"
+	icon_state = "warp2"
+
+/area/warp/station
+	icon_state = "blue"
+
 
 
 /////////////////////////////////////////////////////////////////////

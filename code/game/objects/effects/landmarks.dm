@@ -267,6 +267,7 @@
 	new /obj/item/clothing/under/rank/clown(src.loc)
 	//new /obj/item/clothing/suit/space/rig/wizard/clown(src.loc)
 	//new /obj/item/clothing/shoes/sandal/clown(src.loc)
+	del(src)
 
 /obj/effect/landmark/vault/giantdad/New()
 	new /obj/item/clothing/head/helmet/fathermask(src.loc)

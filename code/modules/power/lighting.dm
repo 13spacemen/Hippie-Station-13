@@ -202,7 +202,7 @@
 	var/on = 0					// 1 if on, 0 if off
 	var/on_gs = 0
 	var/static_power_used = 0
-	var/brightness = 8			// luminosity when on, also used in power calculation
+	var/brightness = 6			// luminosity when on, also used in power calculation //was 8
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/weapon/light/tube		// the type of light item

@@ -122,6 +122,13 @@ for reference:
 	else
 		return 0
 
+/obj/structure/barricade/wooden/full
+	name = "wooden barricade"
+	desc = "This space is blocked off by a wooden barricade."
+	icon_state = "woodenbarricadefull"
+	health = 200.0
+	maxhealth = 200.0
+
 
 //Actual Deployable machinery stuff
 

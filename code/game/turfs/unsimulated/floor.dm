@@ -42,11 +42,12 @@
 	desc = "Holy shit, that's lava!"
 	temperature = 99999
 
+/* fuck it
 /turf/unsimulated/floor/lava/Enter(mob/living/M as mob)
 	if(prob(70))
 		return //stop them from entering because we don't want you to always plunge in and die
 	if(prob(30))
-		..()
+		..() */
 
 /turf/unsimulated/floor/lava/Entered(mob/living/M as mob)
 	visible_message("<span class='danger'>[M] plunges into the lava!</span>", "<span class='danger'>You fall into the lava!</span>")
