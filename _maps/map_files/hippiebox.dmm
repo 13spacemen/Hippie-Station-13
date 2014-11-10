@@ -3883,7 +3883,7 @@
 "bwI" = (/obj/structure/cable{icon_state = "0-4"; d2 = 4},/obj/machinery/power/apc{dir = 8; name = "Gravity Generator APC"; pixel_x = -25; pixel_y = 1},/obj/structure/table,/obj/item/weapon/paper/gravity_gen{layer = 3},/obj/item/weapon/pen/blue,/obj/item/device/radio/intercom{name = "Station Intercom (General)"; pixel_y = -35},/turf/simulated/floor,/area/engine/gravity_generator)
 "bwJ" = (/obj/structure/cable{d1 = 1; d2 = 8; icon_state = "1-8"},/turf/simulated/floor,/area/engine/gravity_generator)
 "bwK" = (/obj/machinery/power/terminal{icon_state = "term"; dir = 1},/turf/simulated/wall/r_wall,/area/ai_monitored/nuke_storage)
-"bwL" = (/obj/structure/safe,/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 9; pixel_y = 0},/obj/effect/landmark/vault,/obj/item/documents/nanotrasen,/obj/item/clothing/suit/armor/giantsarmor,/obj/item/clothing/head/helmet/fathermask,/turf/simulated/floor{icon_state = "vault"; dir = 1},/area/ai_monitored/nuke_storage)
+"bwL" = (/obj/structure/safe,/obj/machinery/atmospherics/pipe/simple/supply/hidden{dir = 9; pixel_y = 0},/obj/item/documents/nanotrasen,/obj/item/clothing/suit/armor/giantsarmor,/obj/item/clothing/head/helmet/fathermask,/turf/simulated/floor{icon_state = "vault"; dir = 1},/area/ai_monitored/nuke_storage)
 "bwM" = (/obj/machinery/nuclearbomb{r_code = "LOLNO"},/turf/simulated/floor{icon_state = "vault"; dir = 4},/area/ai_monitored/nuke_storage)
 "bwN" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/turf/simulated/wall,/area/teleporter)
 "bwO" = (/obj/structure/extinguisher_cabinet{pixel_x = -27; pixel_y = 1},/obj/structure/table,/obj/item/device/radio/beacon,/turf/simulated/floor,/area/teleporter)
