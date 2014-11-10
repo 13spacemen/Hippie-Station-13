@@ -1331,6 +1331,7 @@
 #include "code\WorkInProgress\scooter\critters\critter.dm"
 #include "code\WorkInProgress\scooter\critters\critter_ai.dm"
 #include "code\WorkInProgress\scooter\critters\critter_def.dm"
+#include "code\WorkInProgress\scooter\misc\handcannon.dm"
 #include "code\WorkInProgress\scooter\NewGate\exploring.dm"
 #include "code\WorkInProgress\scooter\NewGate\gate.dm"
 #include "code\WorkInProgress\scooter\NewGate\worlddefines.dm"

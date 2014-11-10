@@ -33,6 +33,9 @@
 /obj/item/projectile/bullet/midbullet2
 	damage = 25
 
+/obj/item/projectile/bullet/handcannon
+	damage = 200
+
 
 /obj/item/projectile/bullet/midbullet3 //Only used with the Stechkin Pistol - RobRichards
 	damage = 30
