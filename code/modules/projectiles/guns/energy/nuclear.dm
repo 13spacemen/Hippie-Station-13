@@ -6,12 +6,28 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode, /obj/item/ammo_casing/energy/laser)
 	origin_tech = "combat=3;magnets=2"
 	modifystate = 2
+	cell_type = /obj/item/weapon/stock_parts/cell/gun/rifle
 
 
 /obj/item/weapon/gun/energy/gun/attack_self(mob/living/user as mob)
 	select_fire(user)
 	update_icon()
 
+/obj/item/weapon/gun/energy/gun/pistol
+	name = "energy pistol"
+	desc = "A basic hybrid energy pistol with two settings: Stun and kill. It's small and doesn't hold much charge, but it can save your life!"
+	icon_state = "pistol"
+	item_state = null	//so the human update icon uses the icon_state instead.
+	ammo_type = list(/obj/item/ammo_casing/energy/electrode, /obj/item/ammo_casing/energy/laser)
+	origin_tech = "combat=3;magnets=1"
+	w_class = 2
+	modifystate = 2
+	cell_type = /obj/item/weapon/stock_parts/cell/gun/pistol
+
+
+	attack_self(mob/living/user as mob)
+		select_fire(user)
+		update_icon()
 
 /obj/item/weapon/gun/energy/gun/nuclear
 	name = "advanced energy gun"
@@ -21,6 +37,7 @@
 	var/lightfail = 0
 	var/charge_tick = 0
 	modifystate = 0
+	cell_type = /obj/item/weapon/stock_parts/cell/gun/assault
 
 /obj/item/weapon/gun/energy/gun/nuclear/New()
 	..()
@@ -105,3 +122,48 @@
 	update_charge()
 	update_reactor()
 	update_mode()
+
+
+/obj/item/weapon/gun/energy/gun/nuclear/patriot
+	name = "\improper the Patriot"
+	desc = "An assault pistol. It never runs out of bullets."
+	icon_state = "patriot"
+	item_state = null	//so the human update icon uses the icon_state instead.
+	ammo_type = list(/obj/item/ammo_casing/energy/notalaser)
+	origin_tech = "combat=3;magnets=2"
+	modifystate = 0
+
+/obj/item/weapon/gun/energy/gun/nuclear/patriot/process()
+	charge_tick++
+	if(charge_tick < 1)
+		return 0
+	charge_tick = 0
+	if(!power_supply)
+		return 0
+	if((power_supply.charge / power_supply.maxcharge) != 1)
+		power_supply.give(100000)
+		update_icon()
+	return 1
+
+/obj/item/weapon/gun/energy/gun/nuclear/patriot/attack_self(mob/living/user as mob)
+	usr << "You spin [src.name] around."
+
+/obj/item/weapon/gun/energy/gun/nuclear/patriot/emp_act(severity)
+	..()
+
+/obj/item/weapon/gun/energy/gun/nuclear/patriot/failcheck()
+	return 0
+
+
+/obj/item/weapon/gun/energy/gun/nuclear/patriot/update_charge()
+	var/ratio = power_supply.charge / power_supply.maxcharge
+	ratio = Ceiling(ratio*4) * 25
+	overlays += "patriot-[ratio]"
+
+
+/obj/item/weapon/gun/energy/gun/nuclear/patriot/update_reactor()
+	return
+
+
+/obj/item/weapon/gun/energy/gun/nuclear/patriot/update_mode()
+	return

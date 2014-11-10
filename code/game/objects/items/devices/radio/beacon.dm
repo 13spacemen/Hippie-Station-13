@@ -31,3 +31,12 @@
 	proc/digest_delay()
 		spawn(600)
 			qdel(src)*/ //Bacon beacons are no more rip in peace
+
+/obj/item/device/radio/beacon/bluespace
+	icon = 'icons/obj/objects.dmi'
+	icon_state = "floor_beaconf"
+	name = "bluespace gigabeacon"
+	desc = "A device that draws power from bluespace and creates a permanent tracking beacon."
+	level = 1		// underfloor
+	layer = 2.5
+	anchored = 1
