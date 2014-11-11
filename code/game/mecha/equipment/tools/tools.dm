@@ -78,7 +78,7 @@
 	icon_state = "mecha_drill"
 	equip_cooldown = 30
 	energy_drain = 10
-	force = 15
+	force = 0
 
 /obj/item/mecha_parts/mecha_equipment/tool/drill/action(atom/target)
 	if(!action_checks(target)) return
@@ -152,7 +152,7 @@
 	origin_tech = "materials=4;engineering=3"
 	construction_cost = list("metal"=10000,"diamond"=6500)
 	equip_cooldown = 20
-	force = 15
+	force = 0
 
 /obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill/action(atom/target)
 	if(!action_checks(target)) return
