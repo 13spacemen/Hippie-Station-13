@@ -41,6 +41,7 @@ var/const/CHAPLAIN			=(1<<10)
 var/const/CLOWN				=(1<<11)
 var/const/MIME				=(1<<12)
 var/const/ASSISTANT			=(1<<13)
+var/const/BARBER			=(1<<14)
 
 
 var/list/assistant_occupations = list(
@@ -49,7 +50,8 @@ var/list/assistant_occupations = list(
 	"Cargo Technician",
 	"Chaplain",
 	"Lawyer",
-	"Librarian"
+	"Librarian",
+	"Barber"
 )
 
 
@@ -94,6 +96,7 @@ var/list/civilian_positions = list(
 	"Chef",
 	"Janitor",
 	"Librarian",
+	"Barber",
 	"Quartermaster",
 	"Cargo Technician",
 	"Shaft Miner",

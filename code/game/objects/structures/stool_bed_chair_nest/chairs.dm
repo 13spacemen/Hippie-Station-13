@@ -140,3 +140,9 @@
 
 /obj/structure/stool/bed/chair/office/dark
 	icon_state = "officechair_dark"
+
+/obj/structure/stool/bed/chair/barber
+	name = "barber's chair"
+	desc = "Butcher Bill's favorite choice of resting apparatus."
+	icon = 'icons/barber.dmi'
+	icon_state = "barberchair"

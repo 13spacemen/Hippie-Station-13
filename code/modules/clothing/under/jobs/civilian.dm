@@ -152,3 +152,10 @@
 	icon_state = "miner"
 	item_state = "miner"
 	item_color = "miner"
+
+/obj/item/clothing/under/rank/barber
+	desc = "It's a fairly casual attire for how important the position is."
+	name = "barber's jumpsuit"
+	icon_state = "tourist"
+	item_state = "tourist"
+	item_color = "tourist"

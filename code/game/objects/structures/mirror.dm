@@ -8,7 +8,6 @@
 	anchored = 1
 	var/shattered = 0
 
-
 /obj/structure/mirror/attack_hand(mob/user as mob)
 	if(shattered)	return
 
@@ -44,7 +43,6 @@
 	icon_state = "mirror_broke"
 	playsound(src, "shatter", 70, 1)
 	desc = "Oh no, seven years of bad luck!"
-
 
 /obj/structure/mirror/bullet_act(var/obj/item/projectile/Proj)
 	if(prob(Proj.damage * 2))
@@ -95,3 +93,9 @@
 		return
 	user.visible_message("<span class='danger'>[user] smashes [src]!</span>")
 	shatter()
+
+/obj/structure/mirror/barber
+	name = "mFUCK irror"
+	desc = "you actually aren't supposed to see this"
+	icon = 'icons/obj/watercloset.dmi'
+	icon_state = "mirror"

@@ -143,3 +143,9 @@
 	name = "\improper HYDROPONICS"
 	desc = "A warning sign which reads 'HYDROPONICS'"
 	icon_state = "hydro1"
+
+/obj/structure/sign/barbers
+	name = "The Barber"
+	desc = "A warning sign that you should shave that disgusting thing off your face!"
+	icon = 'icons/obj/barber.dmi'
+	icon_state = "barber"

@@ -324,6 +324,30 @@ Librarian
 	H.equip_to_slot_or_del(new /obj/item/device/laser_pointer(H), slot_l_store)
 
 /*
+Barber
+*/
+/datum/job/barber
+	title = "Barber"
+	flag = BARBER
+	department_flag = CIVILIAN
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the head of personnel"
+	selection_color = "#dddddd"
+	access = list(access_hydroponics, access_morgue)
+	minimal_access = list(access_kitchen, access_morgue)
+
+
+/datum/job/barber/equip_items(var/mob/living/carbon/human/H)
+	H.equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_srv(H), slot_ears)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/barber(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/tie/black(H), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/bowler(H), slot_head)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sneakers/white(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/device/pda/bar(H), slot_belt)
+
+/*
 Lawyer
 */
 /datum/job/lawyer

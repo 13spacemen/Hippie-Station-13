@@ -23,7 +23,6 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	var/alert = null
 	var/danger = null
 	var/caution = null
-	var/warpgate = null
 	var/warn = null
 	var/rads = null
 	level = null
@@ -135,18 +134,6 @@ proc/process_ghost_teleport_locs()
 	power_environ = 0
 	ambientsounds = list('sound/ambience/ambispace.ogg','sound/ambience/title2.ogg',)
 
-
-/area/warp
-	name = "the warp"
-	icon_state = "warp"
-	requires_power = 1
-	always_unpowered = 1
-	has_gravity = 1
-	lighting_use_dynamic = 0
-	power_light = 0
-	power_equip = 0
-	power_environ = 0
-	ambientsounds = list('sound/ambience/ambispace.ogg','sound/ambience/title2.ogg',)
 
 
 //These are shuttle areas, they must contain two areas in a subgroup if you want to move a shuttle from one
@@ -736,6 +723,10 @@ proc/process_ghost_teleport_locs()
 /area/crew_quarters/toilet
 	name = "\improper Dormitory Toilets"
 	icon_state = "toilet"
+
+/area/barber
+	name = "Barbers"
+	icon_state = "barber"
 
 /area/crew_quarters/sleep
 	name = "\improper Dormitories"
@@ -1545,7 +1536,7 @@ proc/process_ghost_teleport_locs()
 	has_gravity = 0
 
 /area/spaceareas/space_beacons/station/east
-	name = "East of Escape"
+	name = "East of Arrivals"
 	icon_state = "red"
 	has_gravity = 0
 
@@ -1686,19 +1677,6 @@ proc/process_ghost_teleport_locs()
 	requires_power = 0
 	has_gravity = 1
 	ambientsounds = list('sound/ambience/shore.ogg', 'sound/ambience/seag1.ogg','sound/ambience/seag2.ogg','sound/ambience/seag2.ogg')
-
-
-////////////////////
-/////WARP AREAS/////
-////////////////////
-
-/area/warp/ucannotleave
-	name = "the warp"
-	icon_state = "warp2"
-
-/area/warp/station
-	icon_state = "blue"
-
 
 
 /////////////////////////////////////////////////////////////////////
