@@ -33,3 +33,6 @@ themostcleverbot = Game Admin
 ChronicPwnage = Game Admin
 Redswandir = Coder
 HITHISISFRONK = Trial Admin
+Siraithor = TrialMod
+Monotonical = Game Admin
+Austupaio = Game Admin
