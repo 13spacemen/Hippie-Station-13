@@ -325,7 +325,7 @@ Librarian
 
 /*
 Barber
-*/
+
 /datum/job/barber
 	title = "Barber"
 	flag = BARBER
@@ -346,7 +346,7 @@ Barber
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/bowler(H), slot_head)
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/sneakers/white(H), slot_shoes)
 	H.equip_to_slot_or_del(new /obj/item/device/pda/bar(H), slot_belt)
-
+*/
 /*
 Lawyer
 */
