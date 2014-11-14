@@ -7,7 +7,7 @@
 	antag_flag = BE_WIZARD
 	required_players = 18
 	required_enemies = 1
-	recommended_enemies = 1
+	recommended_enemies = 2 //two wizards wtf
 	pre_setup_before_jobs = 1
 
 	uplink_welcome = "Wizardly Uplink Console:"
