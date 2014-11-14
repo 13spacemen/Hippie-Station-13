@@ -69,6 +69,7 @@
 	name = "Officer Pingsky"
 	desc = "It's Officer Pingsky! Delegated to satellite guard duty for harbouring anti-human sentiment."
 	declare_arrests = 0
+	beacon_freq = 1451 //heh
 
 /obj/item/weapon/secbot_assembly
 	name = "incomplete securitron assembly"

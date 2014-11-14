@@ -137,7 +137,7 @@ proc/process_ghost_teleport_locs()
 
 /area/warp
 	name = "the warp"
-	icon_state = "warp"
+	icon_state = "warp3"
 	requires_power = 1
 	always_unpowered = 1
 	has_gravity = 1
