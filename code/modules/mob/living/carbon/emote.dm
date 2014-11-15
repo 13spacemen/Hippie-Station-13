@@ -189,6 +189,7 @@
 			"is a <b>farting</b> motherfucker!",
 			"<B><font color='red'>f</font><font color='blue'>a</font><font color='red'>r</font><font color='blue'>t</font><font color='red'>s</font></B>")]"
 			playsound(src.loc, 'sound/misc/fart.ogg', 50, 1, 5)
+			src.nutrition -= 25
 			if(prob(12))
 				B = locate() in src.internal_organs
 				if(B)
@@ -220,6 +221,8 @@
 			if(!B)
 				src << "\red You don't have a butt!"
 				return
+			else if(B)
+				src.internal_organs -= B
 			//src.butt = null
 			src.nutrition -= 500
 			playsound(src.loc, 'sound/misc/fart.ogg', 50, 1, 5)
@@ -243,11 +246,8 @@
 												playsound(src.loc, 'sound/misc/fart.ogg', 50, 1, 5)
 												spawn(5)
 													playsound(src.loc, 'sound/misc/fartmassive.ogg', 75, 1, 5)
-													B = locate() in src.internal_organs
-													if(B)
-														src.internal_organs -= B
-														new /obj/item/clothing/head/butt(src.loc)
-														new /obj/effect/decal/cleanable/blood(src.loc)
+													new /obj/item/clothing/head/butt(src.loc)
+													new /obj/effect/decal/cleanable/blood(src.loc)
 													if(prob(76))
 														for(var/mob/living/M in range(0))
 															if(M != src)
